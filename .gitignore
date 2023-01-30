@@ -4,3 +4,4 @@
 # ignore debug and object files
 bin
 obj/
+console_testing/
