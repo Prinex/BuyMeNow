@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:BuyMeNow"
     Shell.FlyoutBehavior="Flyout"
-    Shell.NavBarIsVisible="False">
+    Shell.NavBarIsVisible="True">
     
 
     <Shell.FlyoutHeader>
@@ -22,9 +22,9 @@
 
     <ShellContent Icon="user.png"
                     Title="My Account"
-                    ContentTemplate="{DataTemplate local:MainPage}"
+                    ContentTemplate="{DataTemplate local:AccountPage}"
                     Route="AccountPage" />
-
+    
     <!-- main features are in a tab bar -->
     
     <FlyoutItem Title="Shopping" Icon="shopping.png" Shell.TabBarIsVisible="True">
@@ -49,17 +49,17 @@
 
     <ShellContent Icon="about.png"
                     Title="About"
-                    ContentTemplate="{DataTemplate local:MainPage}"
+                    ContentTemplate="{DataTemplate local:AboutPage}"
                     Route="AboutPage" />
 
     <ShellContent Icon="terms.png"
                     Title="Terms and Conditions"
-                    ContentTemplate="{DataTemplate local:MainPage}"
+                    ContentTemplate="{DataTemplate local:TermsPage}"
                     Route="TermsPage" />
 
     <ShellContent Icon="privacy.png"
                     Title="Privacy policy"
-                    ContentTemplate="{DataTemplate local:MainPage}"
+                    ContentTemplate="{DataTemplate local:PrivacyPage}"
                     Route="PrivacyPage" />
 
     

@@ -7,30 +7,5 @@
     <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
     <DefaultDevice>pixel_3a_-_api_30</DefaultDevice>
   </PropertyGroup>
-  <ItemGroup>
-    <MauiXaml Update="AccountPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="ItemsHistoryPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="PrivacyPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="RecommendationsPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="ShoppingListPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="SigninPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="SignupPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="TermsPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-  </ItemGroup>
+  <ItemGroup />
 </Project>
