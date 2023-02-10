@@ -2,8 +2,9 @@ namespace BuyMeNow;
 
 public partial class SigninPage : ContentPage
 {
-	public SigninPage()
+	public SigninPage(SigninPageViewModel viewModel)
 	{
 		InitializeComponent();
+		this.BindingContext = viewModel;
 	}
 }

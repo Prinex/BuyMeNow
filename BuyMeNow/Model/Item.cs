@@ -1,6 +1,6 @@
 ﻿namespace BuyMeNow.Model;
 
-class Item
+public class Item
 {
     private int itemID;
     private string title;
@@ -21,32 +21,16 @@ class Item
         this.storeLatitude = storeLatitude;
     }
 
-    public int ItemID 
-    { 
-        get => itemID; 
-        set => itemID = value;
-    }
+    public int ItemID { get => itemID; set => itemID = value; }
 
-    public string Title
-    { 
-        get => title;
-        set => title = value; 
-    }
+    public string Title { get => title; set => title = value; }
 
-    public double UnitPrice
-    {
-        get => unit_price;
-        set => unit_price = value;
-    }
+    public double UnitPrice { get => unit_price; set => unit_price = value; }
 
-    public string Store
-    {
-        get => store; 
-        set => store = value;
-    }
+    public string Store { get => store; set => store = value; }
 
-    public double StoreLongitude { get => storeLongitude; }
+    public double StoreLongitude { get => storeLongitude; set => storeLongitude = value; }
 
-    public double StoreLatitude { get => storeLatitude; }
+    public double StoreLatitude { get => storeLatitude; set => storeLatitude = value; }
 }
 

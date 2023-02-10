@@ -18,7 +18,9 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+		builder.Services.AddSingleton<SigninPage>();
+        builder.Services.AddSingleton<SigninPageViewModel>();
 
-		return builder.Build();
+        return builder.Build();
 	}
 }

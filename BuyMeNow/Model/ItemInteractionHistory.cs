@@ -1,9 +1,12 @@
-﻿namespace BuyMeNow.Model;
+﻿using SQLite;
+using System.ComponentModel.DataAnnotations.Schema;
 
-class ItemInteractionHistory
+namespace BuyMeNow.Model;
+
+public class ItemInteractionHistory
 {
-    private int userID;
     private int itemID;
+    private int userID;
     private double rating;
     private int quantity;
     private Item item;
@@ -16,34 +19,15 @@ class ItemInteractionHistory
         this.quantity = quantity;
     }
 
-    public int UserID
-    {
-        get => userID;
-        set => userID = value; 
-    }
+    //[ForeignKey()]
+    public int ItemID { get => itemID; set => itemID = value; }
 
-    public int ItemID
-    {
-        get => itemID;
-        set => itemID = value;
-    }
+    public int UserID { get => userID; set => userID = value; }
 
-    public double Rating
-    {
-        get => rating;
-        set => rating = value;
-    }
+    public double Rating { get => rating; set => rating = value; }
 
-    public int Quantity
-    {
-        get => quantity;
-        set => quantity = value;
-    }
+    public int Quantity { get => quantity; set => quantity = value; }
 
-    public Item Itm
-    {
-        get => item;
-        set => item = value;
-    }
+    public Item Itm { get => item;set => item = value; }
 }
 
