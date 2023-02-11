@@ -1,6 +1,4 @@
-﻿using SQLite;
-
-namespace BuyMeNow.Model;
+﻿namespace BuyMeNow.Model;
 
 public class Account
 {

@@ -60,7 +60,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="View\" />
+	  <Folder Include="Converters\" />
+	  <Folder Include="Views\" />
 	</ItemGroup>
 
 	<ItemGroup>
