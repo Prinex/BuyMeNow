@@ -1,7 +1,4 @@
-﻿using SQLite;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace BuyMeNow.Model;
+﻿namespace BuyMeNow.Models;
 
 public class ItemInteractionHistory
 {
@@ -11,6 +8,8 @@ public class ItemInteractionHistory
     private int quantity;
     private Item item;
 
+    public ItemInteractionHistory() { }
+
     public ItemInteractionHistory(int userID, int itemID, int quantity, double rating)
     {
         this.userID = userID;
@@ -19,15 +18,22 @@ public class ItemInteractionHistory
         this.quantity = quantity;
     }
 
-    //[ForeignKey()]
+    [PrimaryKey, AutoIncrement, NotNull, Unique]
+    public int interactionID { get; set; }
+
+    [Column("itemid"), ForeignKey(typeof(Item))]
     public int ItemID { get => itemID; set => itemID = value; }
 
+    [Column("userID"), ForeignKey(typeof(Account))]
     public int UserID { get => userID; set => userID = value; }
 
+    [Column("rating"), NotNull]
     public double Rating { get => rating; set => rating = value; }
 
+    [Column("quantity"), NotNull]
     public int Quantity { get => quantity; set => quantity = value; }
 
+    [ManyToOne]
     public Item Itm { get => item;set => item = value; }
 }
 

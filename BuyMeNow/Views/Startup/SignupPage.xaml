@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:BuyMeNow.ViewModels.Startup"
+             x:DataType="viewmodel:SignupPageViewModel"
+             x:Class="BuyMeNow.Views.Startup.SignupPage"
+             Title="SignupPage"
+             Shell.NavBarIsVisible="False">
+    
+    <Grid BackgroundColor="White" RowDefinitions="300, 320, 140">
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="EndAndExpand" 
+               WidthRequest="250" HeightRequest="250" Padding="0" Margin="0, -200, -100, 0">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="250" HeightRequest="250" Padding="0" Margin="-100, -300, -200, 0">
+        </Frame>
+        <Label Grid.Row="0" Text="Create your account" HorizontalOptions="Center" FontSize="Title" Padding="0" Margin="0,200,0,0" />
+
+        <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+            <Frame BackgroundColor="Transparent" BorderColor="#00ace6" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <StackLayout Orientation="Horizontal" WidthRequest="350">
+                    <Frame HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                        <Image Source="user1.png" Margin="0"/>
+                    </Frame>
+                    <Entry Text="{Binding Username}" Placeholder="Username" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#00ace6" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <StackLayout Orientation="Horizontal" WidthRequest="350">
+                    <Frame HeightRequest="40" WidthRequest="40" BorderColor="#00ace6" CornerRadius="30" Padding="0" Margin="5">
+                        <Image Source="lock.png" Margin="0"/>
+                    </Frame>
+                    <Entry Text="{Binding Password}" Placeholder="Password" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#00ace6" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <StackLayout Orientation="Horizontal" WidthRequest="350">
+                    <Frame HeightRequest="40" WidthRequest="40" BorderColor="#00ace6" CornerRadius="30" Padding="0" Margin="5">
+                        <Image Source="marker.png" Margin="0, 5"/>
+                    </Frame>
+                    <Entry Text="{Binding Postcode}" Placeholder="Postcode" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                </StackLayout>
+            </Frame>
+            <Button Text="Sign up" CornerRadius="30" WidthRequest="200" Margin="0,100,0,0" Command="{Binding SignupCommand}"/>
+        </StackLayout>
+
+
+        <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,60,0,0" Padding="0">
+            <Label Text="Already have an account?" TextColor="DarkGray" FontSize="Small"/>
+            <Label Margin="5,0,0,0" Text="Sign in here." TextColor="#00a5f7" FontAttributes="Bold" FontSize="Small" TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SigninCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+    </Grid>
+    
+</ContentPage>

@@ -1,36 +1,30 @@
-﻿namespace BuyMeNow.Model;
+﻿namespace BuyMeNow.Models;
 
 public class Item
 {
-    private int itemID;
     private string title;
-    private double unit_price;
-    private string store;
-    private double storeLongitude;
-    private double storeLatitude;
+    private double price;
+    private int storeID;
 
-    public Item(int itemID) { this.itemID = itemID; }
+    public Item() { }
 
-    public Item(int itemID, string title, double unit_price, string store, double storeLongitude, double storeLatitude)
+    public Item(string title, double _price, int _storeID, double storeLongitude, double storeLatitude)
     {
-        this.itemID = itemID;
         this.title = title;
-        this.unit_price = unit_price;
-        this.store = store;
-        this.storeLongitude = storeLongitude;
-        this.storeLatitude = storeLatitude;
+        this.price = _price;
+        this.storeID = _storeID;
     }
 
-    public int ItemID { get => itemID; set => itemID = value; }
+    [Column("itemID"), PrimaryKey, AutoIncrement, NotNull, Unique]
+    public int ItemID { get; set; }
 
+    [Column("storeID"), ForeignKey(typeof(Store)), NotNull]
+    public int StoreID { get => storeID; set => storeID = value; }
+
+    [Column("title"), NotNull, Unique]
     public string Title { get => title; set => title = value; }
 
-    public double UnitPrice { get => unit_price; set => unit_price = value; }
-
-    public string Store { get => store; set => store = value; }
-
-    public double StoreLongitude { get => storeLongitude; set => storeLongitude = value; }
-
-    public double StoreLatitude { get => storeLatitude; set => storeLatitude = value; }
+    [Column("price"), NotNull]
+    public double Price { get => price; set => price = value; }
 }
 

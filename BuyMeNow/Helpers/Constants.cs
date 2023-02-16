@@ -1,7 +1,32 @@
 ﻿namespace BuyMeNow.Helpers;
 
+/**
+ * use this for the db services
+ */
 public static class Constants
 {
+    // name of the local db
     public const string LocalDbFile = "app.db";
+
+    public const SQLite.SQLiteOpenFlags Flags =
+        // open the database in read/write mode
+        SQLite.SQLiteOpenFlags.ReadWrite |
+        // create the database if it doesn't exist
+        SQLite.SQLiteOpenFlags.Create |
+        // enable multi-threaded database access
+        SQLite.SQLiteOpenFlags.SharedCache;
+
+    public static string DatabasePath =>
+        Path.Combine(FileSystem.AppDataDirectory, LocalDbFile);
+
+    // tables for the db
+    //public const string AccountTable = "Account";
+    //public const string ItemInteractionHistoryTable = "ItemInteractionHistory";
+    //public const string ShoppingListsTable = "ShoppingLists";
+    //public const string ShoppingListTable = "ShoppingList";
+    //public const string ItemTable = "Item";
+    //public const string StoreTable = "Table";
+    //
+
 }
 

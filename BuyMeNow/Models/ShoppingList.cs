@@ -1,14 +1,16 @@
-﻿namespace BuyMeNow.Model;
+﻿namespace BuyMeNow.Models;
 
 public class ShoppingList
 {
-    private int itemID;
-    private int userID;
-    private Item item;
+    [PrimaryKey, AutoIncrement, NotNull, Unique]
+    public int entryID { get; set; }
 
-    public int ItemID { get => itemID; set => itemID = value; }
+    [ForeignKey(typeof(ShoppingLists)), NotNull]
+    public int shoppingListID { get; set; }
 
-    public int UserID { get => userID; set => userID = value; }
+    [ForeignKey(typeof(Item)), NotNull]
+    public int itemID { get; set; }
 
-    public Item Itm { get => item; set => item = value; }
+    [OneToMany]
+    public List<Item> Itm { get; set; }
 }

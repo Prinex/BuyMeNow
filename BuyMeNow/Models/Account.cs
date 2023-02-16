@@ -1,38 +1,46 @@
-﻿namespace BuyMeNow.Model;
+﻿namespace BuyMeNow.Models;
 
 public class Account
-{
-    
-    private int userID;
+{   
     private string username;
     private string password;
     private string postcode;
     private List<ItemInteractionHistory> interactions;
     private List<ShoppingList> shoppingList;
 
-    public Account(int userID, string username, string password, string postcode)
+    public Account() { }
+
+    // for sign in
+    public Account(string username, string password) 
     {
-        this.userID = userID;
+        this.username = username;
+        this.password = password;
+    }
+
+    // for sign up
+    public Account(string username, string password, string postcode)
+    {
         this.username = username;
         this.password = password;
         this.postcode = postcode;
     }
 
-    [PrimaryKey, Unique, NotNull, Column("userID")]
-    public int UserID { get => userID; set => userID = value; }
+    [Column("userID"), PrimaryKey, AutoIncrement, NotNull, Unique]
+    public int UserID { get; set; }
     
-    [MaxLength(255), Unique, NotNull]
+    [Column("username"), NotNull, Unique]
     public string Username { get => username; set => username = value; }
 
-    [MaxLength(255), Unique, NotNull]
+    [Column("password"), NotNull, Unique]
     public string Password { get => password; set => username = value; }
 
-    [MaxLength(255), NotNull]
+    [Column("postcode"), NotNull]
     public string Postcode { get => postcode; set => postcode = value; }
 
-    [Ignore]
+    [OneToMany]
     public List<ItemInteractionHistory> Interactions { get => interactions; set => interactions = value; }
-
+    
+    [OneToMany]
     public List<ShoppingList> _shoppingList { get => shoppingList; set => shoppingList = value; }
 }
 

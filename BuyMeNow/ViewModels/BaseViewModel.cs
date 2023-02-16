@@ -1,13 +1,10 @@
-﻿namespace BuyMeNow.ViewModel;
+﻿namespace BuyMeNow.ViewModels;
 
 public partial class BaseViewModel : ObservableObject
 {
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(IsNotBusy))]
-    bool isBusy;
+    public bool isBusy;
 
     [ObservableProperty]
-    string title;
-
-    public bool IsNotBusy => !isBusy;
+    public string title;
 }
