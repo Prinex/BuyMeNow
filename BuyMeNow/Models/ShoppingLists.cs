@@ -2,13 +2,13 @@
 
 public class ShoppingLists
 {
-    [PrimaryKey, AutoIncrement, NotNull, Unique]
-    public int shoppingListsID { get; set; }
+    [Column("shoppingListID"), PrimaryKey, AutoIncrement, NotNull, Unique]
+    public int ShoppingListsID { get; set; }
 
-    [ForeignKey(typeof(Account)), NotNull]
-    public int userID { get; set; }
+    [Column("userID"), ForeignKey(typeof(Account)), NotNull]
+    public int UserID { get; set; }
 
     [NotNull]
-    public string shoppingListName { get; set; }
+    public string ShoppingListName { get; set; }
 }
 

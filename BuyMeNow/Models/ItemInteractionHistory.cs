@@ -2,38 +2,22 @@
 
 public class ItemInteractionHistory
 {
-    private int itemID;
-    private int userID;
-    private double rating;
-    private int quantity;
-    private Item item;
-
-    public ItemInteractionHistory() { }
-
-    public ItemInteractionHistory(int userID, int itemID, int quantity, double rating)
-    {
-        this.userID = userID;
-        this.itemID = itemID;
-        this.rating = rating;
-        this.quantity = quantity;
-    }
-
     [PrimaryKey, AutoIncrement, NotNull, Unique]
     public int interactionID { get; set; }
 
     [Column("itemid"), ForeignKey(typeof(Item))]
-    public int ItemID { get => itemID; set => itemID = value; }
+    public int ItemID { get; set; }
 
     [Column("userID"), ForeignKey(typeof(Account))]
-    public int UserID { get => userID; set => userID = value; }
+    public int UserID { get; set; }
 
     [Column("rating"), NotNull]
-    public double Rating { get => rating; set => rating = value; }
+    public double Rating { get; set; }
 
     [Column("quantity"), NotNull]
-    public int Quantity { get => quantity; set => quantity = value; }
+    public int Quantity { get; set; }
 
     [ManyToOne]
-    public Item Itm { get => item;set => item = value; }
+    public Item Itm { get; set; }
 }
 

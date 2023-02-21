@@ -2,16 +2,16 @@
 
 public class Store
 {
-    [PrimaryKey, AutoIncrement, NotNull, Unique]
-    public int storeID { get; set; }
+    [Column("storeID"), PrimaryKey, AutoIncrement, NotNull, Unique]
+    public int StoreID { get; set; }
 
-    [NotNull]
-    public string store { get; set; }
+    [Column("name"), NotNull]
+    public string Name { get; set; }
 
-    [NotNull, Unique]
-    public double latitude { get; set; }
+    [Column("longitude"), NotNull, Unique]
+    public double Longitude { get; set; }
 
-    [NotNull, Unique]
-    public double longitude { get; set; }
+    [Column("latitude"), NotNull, Unique]
+    public double Latitude { get; set; }
 }
 

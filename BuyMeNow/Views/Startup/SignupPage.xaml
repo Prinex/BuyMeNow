@@ -22,7 +22,7 @@
                     <Frame HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                         <Image Source="user1.png" Margin="0"/>
                     </Frame>
-                    <Entry Text="{Binding Username}" Placeholder="Username" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    <Entry Text="{Binding UsernameR}" Placeholder="Username" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                 </StackLayout>
             </Frame>
             <Frame BackgroundColor="Transparent" BorderColor="#00ace6" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
@@ -30,7 +30,7 @@
                     <Frame HeightRequest="40" WidthRequest="40" BorderColor="#00ace6" CornerRadius="30" Padding="0" Margin="5">
                         <Image Source="lock.png" Margin="0"/>
                     </Frame>
-                    <Entry Text="{Binding Password}" Placeholder="Password" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    <Entry Text="{Binding PasswordR}" Placeholder="Password" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                 </StackLayout>
             </Frame>
             <Frame BackgroundColor="Transparent" BorderColor="#00ace6" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
@@ -38,7 +38,7 @@
                     <Frame HeightRequest="40" WidthRequest="40" BorderColor="#00ace6" CornerRadius="30" Padding="0" Margin="5">
                         <Image Source="marker.png" Margin="0, 5"/>
                     </Frame>
-                    <Entry Text="{Binding Postcode}" Placeholder="Postcode" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    <Entry Text="{Binding PostcodeR}" Placeholder="Postcode" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                 </StackLayout>
             </Frame>
             <Button Text="Sign up" CornerRadius="30" WidthRequest="200" Margin="0,100,0,0" Command="{Binding SignupCommand}"/>
@@ -46,7 +46,7 @@
 
 
         <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,60,0,0" Padding="0">
-            <Label Text="Already have an account?" TextColor="DarkGray" FontSize="Small"/>
+            <Label Text="Have an account now?" TextColor="DarkGray" FontSize="Small"/>
             <Label Margin="5,0,0,0" Text="Sign in here." TextColor="#00a5f7" FontAttributes="Bold" FontSize="Small" TextDecorations="Underline">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding SigninCommand}" />

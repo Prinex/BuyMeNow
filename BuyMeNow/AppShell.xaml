@@ -14,6 +14,7 @@
         </Grid>
     </Shell.FlyoutHeader>
 
+    <!--pages that are still part of the shell but not explicitly visible (navigating outside of the shell)-->
     <ShellContent Title="Loading" 
                   ContentTemplate="{DataTemplate startupViews:LoadingPage}" 
                   FlyoutItemIsVisible="False" 
@@ -35,6 +36,13 @@
                   Shell.TabBarIsVisible="False"  
                   Route="SignupPage"/>
 
+    <ShellContent Title="Reset" 
+                  ContentTemplate="{DataTemplate startupViews:ResetPasswordPage}" 
+                  FlyoutItemIsVisible="False" 
+                  Shell.FlyoutBehavior="Disabled" 
+                  Shell.TabBarIsVisible="False"  
+                  Route="ResetPasswordPage"/>
+    <!--till here-->
     <ShellContent Icon="home.png" 
                   Title="Home" 
                   ContentTemplate="{DataTemplate dashboardViews:HomePage}" 

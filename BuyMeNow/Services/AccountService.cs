@@ -4,41 +4,47 @@ public class AccountService : IAccountService
 {
     public SQLiteAsyncConnection conn;
 
-    public async Task Init()
+    private async Task Init()
     {
-        if (conn is not null)
-            return;
-
-        conn = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-        var accountTable = await conn.CreateTableAsync<Account>();
-        var storeTable = await conn.CreateTableAsync<Store>();
-        var itemTable = await conn.CreateTableAsync<Item>();
-        var interactionTable = await conn.CreateTableAsync<ItemInteractionHistory>();
-        var shoppingListsTable = await conn.CreateTableAsync<ShoppingLists>();
-        var shoppingListTable = await conn.CreateTableAsync<ShoppingList>();
+        if (conn == null)
+        {
+            conn = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+            await conn.CreateTableAsync<Account>();
+            // each service will create its table in the dbs
+            //await conn.CreateTableAsync<Store>();
+            //await conn.CreateTableAsync<Item>();
+            //await conn.CreateTableAsync<ItemInteractionHistory>();
+            //await conn.CreateTableAsync<ShoppingLists>();
+            //await conn.CreateTableAsync<ShoppingList>();
+        }
     }
 
     public async Task<Account> GetAccount(string username)
     {
         await Init();
-        return await conn.Table<Account>().Where(i => i.Username == username).FirstOrDefaultAsync();
+        var result = await conn.Table<Account>().Where(i => i.Username == username).FirstOrDefaultAsync();
+
+        return result ?? new Account() { IsExistent = false };
     }
 
-    public async Task<int> AddAccount(Account model)
+    public async Task<bool> AddAccount(Account model)
     {
         await Init();
-        return await conn.InsertAsync(model);
+        await conn.InsertAsync(model);
+        return await Task.FromResult(true);
     }
 
-    public async Task<int> UpdateAccount(Account model)
+    public async Task<bool> UpdateAccount(Account model)
     {
         await Init();
-        return await conn.UpdateAsync(model);
+        await conn.UpdateAsync(model);
+        return await Task.FromResult(true);
     }
 
-    public async Task<int> DeleteAccount(Account model)
+    public async Task<bool> DeleteAccount(Account model)
     {
         await Init();
-        return await conn.DeleteAsync(model);
+        await conn.DeleteAsync(model);
+        return await Task.FromResult(true);
     }
 }

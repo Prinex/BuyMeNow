@@ -1,4 +1,6 @@
-﻿namespace BuyMeNow.Helpers;
+﻿using Microsoft.Maui.Controls.PlatformConfiguration;
+
+namespace BuyMeNow.Helpers;
 
 /**
  * use this for the db services
@@ -18,15 +20,5 @@ public static class Constants
 
     public static string DatabasePath =>
         Path.Combine(FileSystem.AppDataDirectory, LocalDbFile);
-
-    // tables for the db
-    //public const string AccountTable = "Account";
-    //public const string ItemInteractionHistoryTable = "ItemInteractionHistory";
-    //public const string ShoppingListsTable = "ShoppingLists";
-    //public const string ShoppingListTable = "ShoppingList";
-    //public const string ItemTable = "Item";
-    //public const string StoreTable = "Table";
-    //
-
 }
 

@@ -7,7 +7,7 @@
              Title="SigninPage"
              Shell.NavBarIsVisible="False">
 
-    <Grid BackgroundColor="White" RowDefinitions="210, 20, 40, 50, 80, 210, 250">
+    <Grid BackgroundColor="GhostWhite" RowDefinitions="210, 20, 40, 50, 80, 210, 250">
         <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="EndAndExpand" 
                WidthRequest="250" HeightRequest="250" Padding="0" Margin="0, -200, -100, 0">
         </Frame>
@@ -27,7 +27,8 @@
                     <Frame HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                         <Image Source="user1.png" Margin="0"/>
                     </Frame>
-                    <Entry Text="{Binding Username}" Placeholder="Username" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    <Entry Text="{Binding UsernameL}" Placeholder="Username" TextColor="Black" VerticalOptions="Center" 
+                           HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                 </StackLayout>
             </Frame>
             <Frame BackgroundColor="Transparent" BorderColor="#00ace6" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
@@ -35,14 +36,20 @@
                     <Frame HeightRequest="40" WidthRequest="40" BorderColor="#00ace6" CornerRadius="30" Padding="0" Margin="5" HasShadow="True">
                         <Image Source="lock.png" Margin="0"/>
                     </Frame>
-                    <Entry Text="{Binding Password}" Placeholder="Password" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    <Entry Text="{Binding PasswordL}" IsPassword="True" Placeholder="Password" TextColor="Black" 
+                           VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    
                 </StackLayout>
             </Frame>
 
             <StackLayout Orientation="Horizontal" Margin="0,10,0,0" Padding="0">
-                <CheckBox IsChecked="False"/>
+                <CheckBox IsChecked="{Binding RememberUser}"/>
                 <Label Text="Remember Me" TextColor="DarkGrey" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                <Label Text="Forgot Password" TextColor="#00a5f7" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center"/>
+                <Label Text="Forgot Password" TextColor="#00a5f7" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ResetPasswordCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
             <Button Text="Sign In" CornerRadius="30" WidthRequest="200" Margin="0,15,0,0" Command="{Binding SigninCommand}"/>
         </StackLayout>

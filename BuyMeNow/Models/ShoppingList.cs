@@ -2,14 +2,14 @@
 
 public class ShoppingList
 {
-    [PrimaryKey, AutoIncrement, NotNull, Unique]
-    public int entryID { get; set; }
+    [Column("entryID"), PrimaryKey, AutoIncrement, NotNull, Unique]
+    public int EntryID { get; set; }
 
-    [ForeignKey(typeof(ShoppingLists)), NotNull]
-    public int shoppingListID { get; set; }
+    [Column("shoppingListID"), ForeignKey(typeof(ShoppingLists)), NotNull]
+    public int ShoppingListID { get; set; }
 
-    [ForeignKey(typeof(Item)), NotNull]
-    public int itemID { get; set; }
+    [Column("itemID"), ForeignKey(typeof(Item)), NotNull]
+    public int ItemID { get; set; }
 
     [OneToMany]
     public List<Item> Itm { get; set; }

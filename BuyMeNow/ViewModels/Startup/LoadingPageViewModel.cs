@@ -6,9 +6,10 @@ public partial class LoadingPageViewModel : BaseViewModel
     {
         CheckUserLoginDetails();
     }
-
+    // using preferences to save user credentials between sessions
     private async void CheckUserLoginDetails()
     {
+        // here check for some session info, like user id
         string userDetailsStr = Preferences.Get(nameof(App.UserDetails), "");
 
         if (string.IsNullOrEmpty(userDetailsStr)) 
@@ -23,6 +24,5 @@ public partial class LoadingPageViewModel : BaseViewModel
 
         }
     }
-
 }
 

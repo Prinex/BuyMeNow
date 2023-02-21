@@ -4,8 +4,8 @@ public interface IAccountService
 {
     // Account authorization and authentication services
     Task<Account> GetAccount(string username);
-    Task<int> AddAccount(Account model);
-    Task<int> UpdateAccount(Account model);
-    Task<int> DeleteAccount(Account model);
+    Task<bool> AddAccount(Account model);
+    Task<bool> UpdateAccount(Account model);
+    Task<bool> DeleteAccount(Account model);
 }
 
