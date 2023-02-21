@@ -36,7 +36,7 @@ public partial class SigninPageViewModel : BaseViewModel
             if (userDetails.IsExistent == false)
             {
                 // catch invalid/inexistent username NullReferenceException (can't do it with try-catch)
-                await Shell.Current.DisplayAlert($"Authentication issue for: {UsernameL}", $"Username does not exist", "OK");
+                await Shell.Current.DisplayAlert($"Authentication issue for: {UsernameL}", $"Username does not exist.", "OK");
             }
             // verify the password 
             if (userDetails.IsExistent != false)

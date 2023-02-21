@@ -30,7 +30,7 @@ public partial class ResetPasswordPageViewModel : BaseViewModel
             if (newUserDetails.IsExistent == false)
             {
                 // catch invalid/inexistent username NullReferenceException (can't do it with try-catch)
-                await Shell.Current.DisplayAlert($"Authentication issue for: {UsernameF}", $"Username does not exist", "OK");
+                await Shell.Current.DisplayAlert($"Authentication issue for: {UsernameF}", $"Username does not exist.", "OK");
             }
             if (newUserDetails.IsExistent != false) 
             {
@@ -40,11 +40,11 @@ public partial class ResetPasswordPageViewModel : BaseViewModel
 
                 if (response == true) 
                 {
-                    await Shell.Current.DisplayAlert("Reset update", "Your password has been changed successfully. You can now try to login in again", "OK");
+                    await Shell.Current.DisplayAlert("Reset update", "Your password has been changed successfully. You can now try to login in again.", "OK");
                 }
                 else
                 {
-                    await Shell.Current.DisplayAlert("Reset error", "Something went wrong while trying to update the password", "OK");
+                    await Shell.Current.DisplayAlert("Reset error", "Something went wrong while trying to update the password.", "OK");
                 }
             }
         }

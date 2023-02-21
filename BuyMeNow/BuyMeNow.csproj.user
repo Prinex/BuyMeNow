@@ -2,7 +2,7 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
-    <ActiveDebugFramework>net7.0-android</ActiveDebugFramework>
+    <ActiveDebugFramework>net7.0-android33.0</ActiveDebugFramework>
     <ActiveDebugProfile>Pixel 3a - API 30 (Android 11.0 - API 30)</ActiveDebugProfile>
     <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
     <DefaultDevice>pixel_3a_-_api_30</DefaultDevice>

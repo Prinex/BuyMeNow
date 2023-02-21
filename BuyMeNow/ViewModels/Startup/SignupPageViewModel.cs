@@ -47,12 +47,12 @@ public partial class SignupPageViewModel : BaseViewModel
             {
                 // general catch clause to
                 // catch the username when it is not unique/already taken
-                await Shell.Current.DisplayAlert($"Registration issue for: {UsernameR}", "Username is already taken", "OK");
+                await Shell.Current.DisplayAlert($"Registration issue for: {UsernameR}", "Username is already taken.", "OK");
             }
             finally
             {
                 if (response == true)
-                    await Shell.Current.DisplayAlert("Account created successfully", "You can now sign in", "OK");
+                    await Shell.Current.DisplayAlert("Account created successfully", "You can now sign in.", "OK");
             }
         }    
     }
