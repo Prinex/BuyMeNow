@@ -4,62 +4,89 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:BuyMeNow"
-    Shell.FlyoutBehavior="Flyout"
-    Shell.NavBarIsVisible="True">
+    xmlns:startupViews="clr-namespace:BuyMeNow.Views.Startup"
+    xmlns:dashboardViews="clr-namespace:BuyMeNow.Views.Main">
     
-
+ 
     <Shell.FlyoutHeader>
         <Grid BackgroundColor="#145391" HeightRequest="230">
             <Image Source="appiconfg.svg" />
         </Grid>
     </Shell.FlyoutHeader>
-    
-    <!-- secondary pages/features: need to be distinct from the tab bar -->
-    <ShellContent Icon="home.png"
-                    Title="Home"
-                    ContentTemplate="{DataTemplate local:MainPage}"
-                    Route="MainPage" />
 
-    <ShellContent Icon="user.png"
-                    Title="My Account"
-                    ContentTemplate="{DataTemplate local:MainPage}"
-                    Route="AccountPage" />
+    <!--pages that are still part of the shell but not explicitly visible (navigating outside of the shell)-->
+    <ShellContent Title="Loading" 
+                  ContentTemplate="{DataTemplate startupViews:LoadingPage}" 
+                  FlyoutItemIsVisible="False" 
+                  Shell.FlyoutBehavior="Disabled" 
+                  Shell.TabBarIsVisible="False"  
+                  Route="LoadingPage"/>
+    
+    <ShellContent Title="Signin" 
+                  ContentTemplate="{DataTemplate startupViews:SigninPage}" 
+                  FlyoutItemIsVisible="False" 
+                  Shell.FlyoutBehavior="Disabled" 
+                  Shell.TabBarIsVisible="False"  
+                  Route="SigninPage"/>
+
+    <ShellContent Title="Signup" 
+                  ContentTemplate="{DataTemplate startupViews:SignupPage}" 
+                  FlyoutItemIsVisible="False" 
+                  Shell.FlyoutBehavior="Disabled" 
+                  Shell.TabBarIsVisible="False"  
+                  Route="SignupPage"/>
+
+    <ShellContent Title="Reset" 
+                  ContentTemplate="{DataTemplate startupViews:ResetPasswordPage}" 
+                  FlyoutItemIsVisible="False" 
+                  Shell.FlyoutBehavior="Disabled" 
+                  Shell.TabBarIsVisible="False"  
+                  Route="ResetPasswordPage"/>
+    <!--till here-->
+    <ShellContent Icon="home.png" 
+                  Title="Home" 
+                  ContentTemplate="{DataTemplate dashboardViews:HomePage}" 
+                  Route="HomePage" />
+    <ShellContent Icon="user.png" 
+                  Title="My Account" 
+                  ContentTemplate="{DataTemplate dashboardViews:AccountPage}" 
+                  Route="AccountPage" />
 
     <!-- main features are in a tab bar -->
-    
     <FlyoutItem Title="Shopping" Icon="shopping.png" Shell.TabBarIsVisible="True">
-        <ShellContent Icon="grocery.png"
-                      Title="Lists"
-                      ContentTemplate="{DataTemplate local:ShoppingListPage}"
-                      Route="ShoppingListPage" />
-        <ShellContent Icon="history.png"
-                      Title="History"
-                      ContentTemplate="{DataTemplate local:ItemsHistoryPage}" 
+        <ShellContent Icon="grocery.png" 
+                      Title="Lists" 
+                      ContentTemplate="{DataTemplate dashboardViews:ShoppingListsPage}" 
+                      Route="ShoppingListsPage" />
+        <ShellContent Icon="history.png" 
+                      Title="History" 
+                      ContentTemplate="{DataTemplate dashboardViews:ItemsHistoryPage}" 
                       Route="ItemsHistoryPage" />
-        <ShellContent Icon="brain.png"
-                      Title="Recommendations"
-                      ContentTemplate="{DataTemplate local:RecommendationsPage}" 
+        <ShellContent Icon="brain.png" 
+                      Title="Recommendations" 
+                      ContentTemplate="{DataTemplate dashboardViews:RecommendationsPage}" 
                       Route="RecommendationsPage"/>
     </FlyoutItem>
 
-    <ShellContent Icon="logout.png"
-                    Title="Sign out"
-                    ContentTemplate="{DataTemplate local:SigninPage}"
-                    Route="SigninPage" />
-
-    <ShellContent Icon="about.png"
-                    Title="About"
-                    ContentTemplate="{DataTemplate local:MainPage}"
-                    Route="AboutPage" />
-
+    <ShellContent Icon="about.png" 
+                  Title="About" 
+                  ContentTemplate="{DataTemplate dashboardViews:AboutPage}" 
+                  Route="AboutPage" />
     <ShellContent Icon="terms.png"
-                    Title="Terms and Conditions"
-                    ContentTemplate="{DataTemplate local:MainPage}"
-                    Route="TermsPage" />
+                  Title="Terms and Conditions" 
+                  ContentTemplate="{DataTemplate dashboardViews:TermsPage}" 
+                  Route="TermsPage" />
+    <ShellContent Icon="privacy.png" 
+                  Title="Privacy policy" 
+                  ContentTemplate="{DataTemplate dashboardViews:PrivacyPage}" 
+                  Route="PrivacyPage" />
 
-    <ShellContent Icon="privacy.png"
-                    Title="Privacy policy"
-                    ContentTemplate="{DataTemplate local:MainPage}"
-                    Route="PrivacyPage" />
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="30" WidthRequest="200">
+            <Button Text="Sign out" Command="{Binding SignOutCommand}" />
+        </StackLayout>
+    </Shell.FlyoutFooter>
+
+    
 
 </Shell>

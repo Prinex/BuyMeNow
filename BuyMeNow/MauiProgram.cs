@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using BuyMeNow.Views.Main;
 
 namespace BuyMeNow;
 
@@ -15,10 +15,23 @@ public static class MauiProgram
 				fonts.AddFont("Montserrat-Bold.ttf", "MontserratBold");
 			});
 
-#if DEBUG
-		builder.Logging.AddDebug();
-#endif
+		// Services 
+		builder.Services.AddSingleton<IAccountService, AccountService>();
 
-		return builder.Build();
+        // singleton/transient for services, views, and viewmodels
+        builder.Services.AddSingleton<SigninPage>();
+		builder.Services.AddTransient<SignupPage>();
+		builder.Services.AddTransient<ResetPasswordPage>();
+        builder.Services.AddTransient<LoadingPage>();
+        builder.Services.AddSingleton<HomePage>();
+		// viewmodels
+        builder.Services.AddSingleton<SigninPageViewModel>();
+		builder.Services.AddTransient<SignupPageViewModel>();
+		builder.Services.AddTransient<ResetPasswordPageViewModel>();
+
+        builder.Services.AddTransient<LoadingPageViewModel>();
+        builder.Services.AddSingleton<HomePageViewModel>();
+
+        return builder.Build();
 	}
 }
