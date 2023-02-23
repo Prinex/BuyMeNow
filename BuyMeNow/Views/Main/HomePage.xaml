@@ -21,10 +21,10 @@
         </Frame>
         <Label Grid.Row="0" Text="{Binding Username, StringFormat='Welcome to Buy Me Now {0}'}" FontSize="Title"
                Margin="14,50,0,0" FontAttributes="Bold"/>
-        <StackLayout Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20">
+        <StackLayout Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20" Spacing="20">
             <Label Text="For learning more about this mobile app, visit the 'About' section." FontSize="Medium"/>
             <Label Text="To view the terms and conditions for this app checkout the 'Terms and conditions section'." 
-                   FontSize="Medium" Margin="0,15"/>
+                   FontSize="Medium"/>
             <Label Text="To view the privacy policy checkout the 'Privacy policy' section." FontSize="Medium"/>
         </StackLayout>
         

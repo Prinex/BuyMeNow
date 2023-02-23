@@ -20,12 +20,12 @@
         <Label Grid.Row="0" Text="Buy Me Now is a shopping list mobile app with geolocation and recommendation features" FontSize="Title"
                Margin="14,50,0,0" FontAttributes="Bold"/>
         <Label Grid.Row="1" Text="Main features overview:" FontSize="Large" FontAttributes="Bold"
-               Margin="20,0,0,0"/>
-        <StackLayout Grid.Row="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20,10,50,1000">
+               Margin="20,0"/>
+        <StackLayout Grid.Row="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20,10,50,1000" Spacing="20">
             <Label Text="The 'Shopping' features is composed of three main features" FontSize="Medium"/>
-            <Label Text="The first feature allows you to create shopping lists with items." FontSize="Medium" Margin="0,15"/>
+            <Label Text="The first feature allows you to create shopping lists with items." FontSize="Medium"/>
             <Label Text="The second feature allows you to see a history of the items that were probably bought, which were added in the shopping lists" 
-                   FontSize="Medium" Margin="0,15"/>
+                   FontSize="Medium"/>
             <Label Text="The third feature allows you to see the recommendation that were made by the system according to your interactions/history." 
                    FontSize="Medium"/>
         </StackLayout>
