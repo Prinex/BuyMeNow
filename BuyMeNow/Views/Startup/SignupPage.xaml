@@ -30,7 +30,7 @@
                     <Frame HeightRequest="40" WidthRequest="40" BorderColor="#00ace6" CornerRadius="30" Padding="0" Margin="5">
                         <Image Source="lock.png" Margin="0"/>
                     </Frame>
-                    <Entry Text="{Binding PasswordR}" Placeholder="Password" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    <Entry Text="{Binding PasswordR}" Placeholder="Password" IsPassword="True" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                 </StackLayout>
             </Frame>
             <Frame BackgroundColor="Transparent" BorderColor="#00ace6" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">

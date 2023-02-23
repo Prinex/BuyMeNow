@@ -10,18 +10,26 @@ public partial class LoadingPageViewModel : BaseViewModel
     private async void CheckUserLoginDetails()
     {
         // here check for some session info, like user id
-        string userDetailsStr = Preferences.Get(nameof(App.UserDetails), "");
+        bool rememberUser = Preferences.Get("RememberUser", false);
 
-        if (string.IsNullOrEmpty(userDetailsStr)) 
+        if (rememberUser == true) 
         {
-            // navigate to login page
-            await Shell.Current.GoToAsync($"//{nameof(SigninPage)}");
+            // navigate to home page
+            string userDetailsStr = Preferences.Get(nameof(App.UserDetails), "");
+            // when opening the app again the saved session data needs to be appended to the UserDetails
+            // so the user does not have to re-do the sign in steps
+            Account userInfo = new Account();
+            if (userDetailsStr != null)
+            {
+                userInfo = JsonConvert.DeserializeObject<Account>(userDetailsStr);
+                App.UserDetails = userInfo;
+            }
+            await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
         }
         else
         {
-            // navigate to home page
-            await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
-
+            // navigate to login page
+            await Shell.Current.GoToAsync($"//{nameof(SigninPage)}");
         }
     }
 }

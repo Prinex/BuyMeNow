@@ -2,11 +2,33 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BuyMeNow.Views.Main.AboutPage"
-             Title="AboutPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="About Page">
+    
+    <Grid BackgroundColor="GhostWhite" RowDefinitions="170, 50, 1000" IsClippedToBounds="True">
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="EndAndExpand" 
+               WidthRequest="250" HeightRequest="250" Padding="0" Margin="0, -1, -100, 0">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="150" HeightRequest="150" Padding="0" Margin="-10, 1000, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="200" HeightRequest="200" Padding="0" Margin="-30, 300, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="100" HeightRequest="100" Padding="0" Margin="300, 700, 0, -200">
+        </Frame>
+        <Label Grid.Row="0" Text="Buy Me Now is a shopping list mobile app with geolocation and recommendation features" FontSize="Title"
+               Margin="14,50,0,0" FontAttributes="Bold"/>
+        <Label Grid.Row="1" Text="Main features overview:" FontSize="Large" FontAttributes="Bold"
+               Margin="20,0,0,0"/>
+        <StackLayout Grid.Row="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20,10,50,1000">
+            <Label Text="The 'Shopping' features is composed of three main features" FontSize="Medium"/>
+            <Label Text="The first feature allows you to create shopping lists with items." FontSize="Medium" Margin="0,15"/>
+            <Label Text="The second feature allows you to see a history of the items that were probably bought, which were added in the shopping lists" 
+                   FontSize="Medium" Margin="0,15"/>
+            <Label Text="The third feature allows you to see the recommendation that were made by the system according to your interactions/history." 
+                   FontSize="Medium"/>
+        </StackLayout>
+
+    </Grid>
 </ContentPage>

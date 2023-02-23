@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:BuyMeNow.ViewModels.Main"
+             x:DataType="viewmodel:HomePageViewModel"
              x:Class="BuyMeNow.Views.Main.HomePage"
-             Title="MainPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="{Binding Title}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Main Page">
+    
+    <Grid BackgroundColor="GhostWhite" RowDefinitions="110, 310" IsClippedToBounds="True">
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="EndAndExpand" 
+               WidthRequest="250" HeightRequest="250" Padding="0" Margin="0, -1, -100, 0">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="150" HeightRequest="150" Padding="0" Margin="-10, 1000, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="200" HeightRequest="200" Padding="0" Margin="-30, 300, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="100" HeightRequest="100" Padding="0" Margin="300, 700, 0, -200">
+        </Frame>
+        <Label Grid.Row="0" Text="{Binding Username, StringFormat='Welcome to Buy Me Now {0}'}" FontSize="Title"
+               Margin="14,50,0,0" FontAttributes="Bold"/>
+        <StackLayout Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20">
+            <Label Text="For learning more about this mobile app, visit the 'About' section." FontSize="Medium"/>
+            <Label Text="To view the terms and conditions for this app checkout the 'Terms and conditions section'." 
+                   FontSize="Medium" Margin="0,15"/>
+            <Label Text="To view the privacy policy checkout the 'Privacy policy' section." FontSize="Medium"/>
+        </StackLayout>
+        
+    </Grid>
 </ContentPage>

@@ -5,9 +5,9 @@ public partial class AppShellViewModel : BaseViewModel
     [RelayCommand]
     public async void SignOut()
     {
-        if (Preferences.ContainsKey(nameof(App.UserDetails)))
+        if (Preferences.ContainsKey("RememberUser"))
         {
-            Preferences.Remove(nameof(App.UserDetails));
+            Preferences.Remove("RememberUser");
         }
         await Shell.Current.GoToAsync($"//{nameof(SigninPage)}");
     }

@@ -5,10 +5,10 @@ public class ItemInteractionHistory
     [PrimaryKey, AutoIncrement, NotNull, Unique]
     public int interactionID { get; set; }
 
-    [Column("itemid"), ForeignKey(typeof(Item))]
+    [Column("itemid"), ForeignKey(typeof(Item)), NotNull]
     public int ItemID { get; set; }
 
-    [Column("userID"), ForeignKey(typeof(Account))]
+    [Column("userID"), ForeignKey(typeof(Account)), NotNull]
     public int UserID { get; set; }
 
     [Column("rating"), NotNull]

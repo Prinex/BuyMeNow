@@ -5,3 +5,5 @@
 bin
 obj/
 console_testing/
+*.db
+*.db3

@@ -8,7 +8,7 @@ public class ShoppingLists
     [Column("userID"), ForeignKey(typeof(Account)), NotNull]
     public int UserID { get; set; }
 
-    [NotNull]
+    [Column("shoppingListName"), NotNull]
     public string ShoppingListName { get; set; }
 }
 

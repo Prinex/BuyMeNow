@@ -3,13 +3,13 @@
 public partial class SigninPageViewModel : BaseViewModel
 {
     [ObservableProperty]
-    public string usernameL;
+    private string usernameL;
 
     [ObservableProperty]
     private string passwordL;
 
     [ObservableProperty]
-    private string rememberUser = "False";
+    public bool rememberUser = false;
 
     //[ObservableProperty]
     //private BuyMeNow.Models.Account accountCredentials = new BuyMeNow.Models.Account();
@@ -20,7 +20,6 @@ public partial class SigninPageViewModel : BaseViewModel
     {
         _accountService = accountService;
     }
-
 
     [RelayCommand]
     public async void Signin()
@@ -38,20 +37,29 @@ public partial class SigninPageViewModel : BaseViewModel
                 // catch invalid/inexistent username NullReferenceException (can't do it with try-catch)
                 await Shell.Current.DisplayAlert($"Authentication issue for: {UsernameL}", $"Username does not exist.", "OK");
             }
-            // verify the password 
+            // verify the if user exists and the password 
             if (userDetails.IsExistent != false)
             {
                 if (BCrypt.Net.BCrypt.Verify(PasswordL, userDetails.Password) == true)
                 {
-                    if (Preferences.ContainsKey(nameof(App.UserDetails)))
-                        Preferences.Remove(nameof(App.UserDetails));
-                    // if the user does not want to keep inserting the credentials next time
-                    if (RememberUser == "True")
+                    // remove previous "session data"
+                    if (Preferences.ContainsKey(nameof(RememberUser)) || Preferences.ContainsKey(nameof(App.UserDetails)))
                     {
-                        string userDetailsStr = JsonConvert.SerializeObject(userDetails);
-                        Preferences.Set(nameof(App.UserDetails), userDetailsStr);
-                        App.UserDetails = userDetails;
+                        Preferences.Remove(nameof(RememberUser));
+                        Preferences.Remove(nameof(App.UserDetails));
                     }
+                    // if the user does want to keep inserting the credentials next time
+                    if (RememberUser == true)
+                        Preferences.Set(nameof(RememberUser), RememberUser);
+
+                    // saving "data session" with preferences: user id and a preference whether the
+                    // user wants to be remembered next time when opening the app
+                    string userDetailsStr = JsonConvert.SerializeObject(userDetails);
+                    Preferences.Set(nameof(App.UserDetails), userDetailsStr);
+                    // only one instance of the account
+                    App.UserDetails = userDetails;
+
+                    // go to home page
                     await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
                 }
                 else

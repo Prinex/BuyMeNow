@@ -9,7 +9,7 @@ public class AccountService : IAccountService
         if (conn == null)
         {
             conn = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-            await conn.CreateTableAsync<Account>();
+            var result = await conn.CreateTableAsync<Account>();
             // each service will create its table in the dbs
             //await conn.CreateTableAsync<Store>();
             //await conn.CreateTableAsync<Item>();

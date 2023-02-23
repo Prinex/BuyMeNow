@@ -1,5 +1,4 @@
 ﻿// a file with all namespaces needed for the project
-
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;
 global using SQLite;

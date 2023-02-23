@@ -2,9 +2,15 @@
 
 public partial class HomePageViewModel : BaseViewModel
 {
+    [ObservableProperty]
+    private string username;
+
     public HomePageViewModel()
     {
-        title = "Welcome";
-    }
+        if (App.UserDetails != null)
+        {
+            Username = App.UserDetails.Username;
+        }
+    }  
 }
 
