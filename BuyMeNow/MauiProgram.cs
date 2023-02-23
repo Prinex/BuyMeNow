@@ -24,7 +24,10 @@ public static class MauiProgram
 		builder.Services.AddTransient<ResetPasswordPage>();
         builder.Services.AddTransient<LoadingPage>();
         builder.Services.AddSingleton<HomePage>();
-		// viewmodels
+		builder.Services.AddSingleton<TermsPage>();
+        builder.Services.AddSingleton<PrivacyPage>();
+        builder.Services.AddSingleton<AboutPage>();
+        // viewmodels
         builder.Services.AddSingleton<SigninPageViewModel>();
 		builder.Services.AddTransient<SignupPageViewModel>();
 		builder.Services.AddTransient<ResetPasswordPageViewModel>();
