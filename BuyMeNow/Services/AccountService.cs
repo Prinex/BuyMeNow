@@ -9,42 +9,44 @@ public class AccountService : IAccountService
         if (conn == null)
         {
             conn = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-            var result = await conn.CreateTableAsync<Account>();
-            // each service will create its table in the dbs
-            //await conn.CreateTableAsync<Store>();
-            //await conn.CreateTableAsync<Item>();
-            //await conn.CreateTableAsync<ItemInteractionHistory>();
-            //await conn.CreateTableAsync<ShoppingLists>();
-            //await conn.CreateTableAsync<ShoppingList>();
+            await conn.CreateTableAsync<Account>();
+            await conn.CreateTableAsync<Store>();
+            await conn.CreateTableAsync<Item>();
+            await conn.CreateTableAsync<ItemInteractionHistory>();
+            await conn.CreateTableAsync<ShoppingLists>();
+            await conn.CreateTableAsync<ShoppingList>();
+            await conn.ExecuteAsync("PRAGMA foreign_keys=ON;");
         }
     }
 
     public async Task<Account> GetAccount(string username)
     {
+        // get an account by id or by username
         await Init();
         var result = await conn.Table<Account>().Where(i => i.Username == username).FirstOrDefaultAsync();
-
         return result ?? new Account() { IsExistent = false };
     }
 
     public async Task<bool> AddAccount(Account model)
     {
         await Init();
-        await conn.InsertAsync(model);
-        return await Task.FromResult(true);
+        var query = await conn.InsertAsync(model);
+        return query > 0;
     }
 
     public async Task<bool> UpdateAccount(Account model)
     {
         await Init();
-        await conn.UpdateAsync(model);
-        return await Task.FromResult(true);
+        var query = await conn.UpdateAsync(model);
+        return query > 0;
     }
 
     public async Task<bool> DeleteAccount(Account model)
     {
+        // if any issues here, might need to delete all
+        // entries from the table for each user
         await Init();
-        await conn.DeleteAsync(model);
-        return await Task.FromResult(true);
+        var qAccount = await conn.DeleteAsync(model);
+        return qAccount > 0;
     }
 }

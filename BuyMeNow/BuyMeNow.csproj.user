@@ -11,5 +11,9 @@
     <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <MauiXaml Update="Views\Main\EditAccountPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+  </ItemGroup>
 </Project>

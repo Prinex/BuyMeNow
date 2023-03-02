@@ -3,7 +3,7 @@
 public class ItemInteractionHistory
 {
     [PrimaryKey, AutoIncrement, NotNull, Unique]
-    public int interactionID { get; set; }
+    public int InteractionID { get; set; }
 
     [Column("itemid"), ForeignKey(typeof(Item)), NotNull]
     public int ItemID { get; set; }
