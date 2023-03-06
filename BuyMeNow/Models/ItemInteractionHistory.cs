@@ -2,14 +2,17 @@
 
 public class ItemInteractionHistory
 {
-    [PrimaryKey, AutoIncrement, NotNull, Unique]
+    [Column("interactionID"), PrimaryKey, AutoIncrement, NotNull, Unique]
     public int InteractionID { get; set; }
-
-    [Column("itemid"), ForeignKey(typeof(Item)), NotNull]
-    public int ItemID { get; set; }
 
     [Column("userID"), ForeignKey(typeof(Account)), NotNull]
     public int UserID { get; set; }
+
+    [Column("storeName"), ForeignKey(typeof(Store)), NotNull]
+    public string StoreName { get; set; }
+
+    [Column("itemTitle"), NotNull]
+    public string itemTitle { get; set; }
 
     [Column("rating"), NotNull]
     public double Rating { get; set; }

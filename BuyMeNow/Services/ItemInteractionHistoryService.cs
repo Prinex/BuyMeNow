@@ -1,6 +1,6 @@
 ﻿namespace BuyMeNow.Services;
 
-public class AccountService : IAccountService
+public class ItemInteractionHistoryService : IItemInteractionHistoryService
 {
     public SQLiteAsyncConnection conn;
 
@@ -18,34 +18,25 @@ public class AccountService : IAccountService
         }
     }
 
-    public async Task<Account> GetAccount(string username)
+    public async Task<List<ItemInteractionHistory>> GetItemInteractionsList()
     {
-        // get an account by id or by username
         await Init();
-        var result = await conn.Table<Account>().Where(i => i.Username == username).FirstOrDefaultAsync();
-        return result ?? new Account() { IsExistent = false };
+        var itemList = await conn.Table<ItemInteractionHistory>().ToListAsync();
+        return itemList;
     }
 
-    public async Task<bool> AddAccount(Account model)
+    public async Task<bool> AddItemInteraction(ItemInteractionHistory model)
     {
         await Init();
         var query = await conn.InsertAsync(model);
         return query > 0;
     }
 
-    public async Task<bool> UpdateAccount(Account model)
+    public async Task<bool> DeleteItemInteraction(ItemInteractionHistory model)
     {
         await Init();
-        var query = await conn.UpdateAsync(model);
+        var query = await conn.DeleteAsync(model);
         return query > 0;
     }
-
-    public async Task<bool> DeleteAccount(Account model)
-    {
-        // if any issues here, might need to delete all
-        // entries from the table for each user
-        await Init();
-        var qAccount = await conn.DeleteAsync(model);
-        return qAccount > 0;
-    }
 }
+
