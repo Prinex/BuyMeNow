@@ -11,5 +11,15 @@
     <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <MauiXaml Update="Views\Main\AddItemInteractionHistoryPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\Main\AddItemPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\Main\AddUpdateShoppingListPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+  </ItemGroup>
 </Project>

@@ -2,14 +2,21 @@
 
 public class ItemInteractionHistory
 {
-    [PrimaryKey, AutoIncrement, NotNull, Unique]
-    public int interactionID { get; set; }
+    private bool isExistent = true;
 
-    [Column("itemid"), ForeignKey(typeof(Item)), NotNull]
-    public int ItemID { get; set; }
+    public bool IsExistent { get => isExistent; set => isExistent = value; }
+
+    [Column("interactionID"), PrimaryKey, AutoIncrement, NotNull, Unique]
+    public int InteractionID { get; set; }
 
     [Column("userID"), ForeignKey(typeof(Account)), NotNull]
     public int UserID { get; set; }
+
+    [Column("storeName"), ForeignKey(typeof(Store)), NotNull]
+    public string StoreName { get; set; }
+
+    [Column("itemTitle"), NotNull]
+    public string ItemTitle { get; set; }
 
     [Column("rating"), NotNull]
     public double Rating { get; set; }

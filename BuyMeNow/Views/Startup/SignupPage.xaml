@@ -22,15 +22,15 @@
                     <Frame HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                         <Image Source="user1.png" Margin="0"/>
                     </Frame>
-                    <Entry Text="{Binding UsernameR}" Placeholder="Username" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    <Entry Text="{Binding AccountDetails.Username, Mode=TwoWay}" Placeholder="Username" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                 </StackLayout>
             </Frame>
             <Frame BackgroundColor="Transparent" BorderColor="#00ace6" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                 <StackLayout Orientation="Horizontal" WidthRequest="350">
                     <Frame HeightRequest="40" WidthRequest="40" BorderColor="#00ace6" CornerRadius="30" Padding="0" Margin="5">
-                        <Image Source="lock.png" Margin="0"/>
+                        <ImageButton Source="{Binding Img}" Margin="0" Command="{Binding ShowPasswordCommand}"/>
                     </Frame>
-                    <Entry Text="{Binding PasswordR}" Placeholder="Password" IsPassword="True" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    <Entry Text="{Binding AccountDetails.Password, Mode=TwoWay}" Placeholder="Password" IsPassword="{Binding IsPass}" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                 </StackLayout>
             </Frame>
             <Frame BackgroundColor="Transparent" BorderColor="#00ace6" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
@@ -38,7 +38,7 @@
                     <Frame HeightRequest="40" WidthRequest="40" BorderColor="#00ace6" CornerRadius="30" Padding="0" Margin="5">
                         <Image Source="marker.png" Margin="0, 5"/>
                     </Frame>
-                    <Entry Text="{Binding PostcodeR}" Placeholder="Postcode" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    <Entry Text="{Binding AccountDetails.Postcode, Mode=TwoWay}" Placeholder="Postcode" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                 </StackLayout>
             </Frame>
             <Button Text="Sign up" CornerRadius="30" WidthRequest="200" Margin="0,100,0,0" Command="{Binding SignupCommand}"/>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viemodel="clr-namespace:BuyMeNow.ViewModels.Main"
+             x:DataType="viemodel:EditAccountPageViewModel"
+             x:Class="BuyMeNow.Views.Main.EditAccountPage"
+             Title="Edit Account Page">
+
+    <Grid BackgroundColor="GhostWhite" RowDefinitions="300, 320, 140">
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="EndAndExpand" 
+               WidthRequest="250" HeightRequest="250" Padding="0" Margin="0, -1, -100, 0">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="150" HeightRequest="150" Padding="0" Margin="-50, -500, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="200" HeightRequest="200" Padding="0" Margin="-30, 300, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="100" HeightRequest="100" Padding="0" Margin="300, 700, 0, -200">
+        </Frame>
+        <Label Grid.Row="0" Text="Edit your account" HorizontalOptions="Center" FontSize="Title" Padding="0" Margin="0,100,0,0" />
+
+        <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="CenterAndExpand" Margin="0, -100">
+            <Frame BackgroundColor="Transparent" BorderColor="#00ace6" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <StackLayout Orientation="Horizontal" WidthRequest="350">
+                    <Frame HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                        <Image Source="user1.png" Margin="0"/>
+                    </Frame>
+                    <Entry Text="{Binding ChangeUserDetails.Username}" Placeholder="Username" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#00ace6" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <StackLayout Orientation="Horizontal" WidthRequest="350">
+                    <Frame HeightRequest="40" WidthRequest="40" BorderColor="#00ace6" CornerRadius="30" Padding="0" Margin="5">
+                        <ImageButton Source="{Binding Img}" Margin="0" Command="{Binding ShowPasswordCommand}"/>
+                    </Frame>
+                    <Entry Text="{Binding ChangeUserDetails.Password}" Placeholder="Password" IsPassword="{Binding IsPass}" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#00ace6" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <StackLayout Orientation="Horizontal" WidthRequest="350">
+                    <Frame HeightRequest="40" WidthRequest="40" BorderColor="#00ace6" CornerRadius="30" Padding="0" Margin="5">
+                        <Image Source="marker.png" Margin="0, 5"/>
+                    </Frame>
+                    <Entry Text="{Binding ChangeUserDetails.Postcode}" Placeholder="Postcode" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                </StackLayout>
+            </Frame>
+            <Button Text="Update account" CornerRadius="30" WidthRequest="200" Margin="0,100,0,0" Command="{Binding UpdateCommand}"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -14,10 +14,10 @@ public partial class AppShell : Shell
 		Routing.RegisterRoute(nameof(SigninPage), typeof(SigninPage));
         Routing.RegisterRoute(nameof(SignupPage), typeof(SignupPage));
         Routing.RegisterRoute(nameof(ResetPasswordPage), typeof(ResetPasswordPage));
-        Routing.RegisterRoute(nameof(HomePage), typeof(HomePage));
-        
-        //Routing.RegisterRoute(nameof(AccountPage), typeof(AccountPage));
-        //Routing.RegisterRoute(nameof(ShoppingListsPage), typeof(ShoppingListsPage));
+        Routing.RegisterRoute(nameof(ShoppingListPage), typeof(ShoppingListPage));
+        Routing.RegisterRoute(nameof(AddUpdateShoppingListPage), typeof(AddUpdateShoppingListPage));
+        Routing.RegisterRoute(nameof(AddItemPage), typeof(AddItemPage));
+        Routing.RegisterRoute(nameof(AddItemInteractionHistoryPage), typeof(AddItemInteractionHistoryPage));
         //Routing.RegisterRoute(nameof(RecommendationsPage), typeof(RecommendationsPage));
         //Routing.RegisterRoute(nameof(ItemsHistoryPage), typeof(ItemsHistoryPage));
         //Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));

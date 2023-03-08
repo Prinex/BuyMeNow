@@ -1,12 +1,43 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:BuyMeNow.ViewModels.Main"
+             x:DataType="viewmodel:AccountPageViewModel"
              x:Class="BuyMeNow.Views.Main.AccountPage"
-             Title="AccountPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Account Page">
+    <Grid BackgroundColor="GhostWhite" RowDefinitions="150, 400">
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="EndAndExpand" 
+               WidthRequest="250" HeightRequest="250" Padding="0" Margin="0, -1, -100, 0">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="150" HeightRequest="150" Padding="0" Margin="-50, -300, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="200" HeightRequest="200" Padding="0" Margin="-30, 900, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="100" HeightRequest="100" Padding="0" Margin="300, 450, 0, -200">
+        </Frame>
+        <Label Grid.Row="0" Text="Account details" FontSize="Title" VerticalOptions="Center" HorizontalOptions="Center" Margin="30" 
+               FontAttributes="Bold" />
+        <StackLayout Grid.Row="1" Margin="10" Spacing="30">
+            <Frame>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Account username" FontAttributes="Bold" />
+                    <Label Text="{Binding Username}" />
+                    <BoxView HeightRequest="0.8" Color="Gray" />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Your postcode area" FontAttributes="Bold" />
+                    <Label Text="{Binding Postcode}" />
+                    <BoxView HeightRequest="0.8" Color="Gray" />
+                </VerticalStackLayout>
+            </Frame>
+            <Button Text="Edit" CornerRadius="30" Command="{Binding EditCommand}"/>
+            <Button Text="Delete" CornerRadius="30" Command="{Binding DeleteCommand}"/>
+        </StackLayout>
+        
+    </Grid>
 </ContentPage>

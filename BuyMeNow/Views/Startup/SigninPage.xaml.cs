@@ -2,7 +2,7 @@ namespace BuyMeNow.Views.Startup;
 
 public partial class SigninPage : ContentPage
 {
-	public SigninPage(SigninPageViewModel viewModel)
+    public SigninPage(SigninPageViewModel viewModel)
 	{
 		InitializeComponent();
 		this.BindingContext = viewModel;

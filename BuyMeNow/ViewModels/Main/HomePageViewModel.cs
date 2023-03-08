@@ -1,5 +1,7 @@
 ﻿namespace BuyMeNow.ViewModels.Main;
 
+
+
 public partial class HomePageViewModel : BaseViewModel
 {
     [ObservableProperty]
@@ -9,8 +11,15 @@ public partial class HomePageViewModel : BaseViewModel
     {
         if (App.UserDetails != null)
         {
-            Username = App.UserDetails.Username;
+            // bind only the username on the homepage
+            username = App.UserDetails.Username;
         }
-    }  
+    }
+
+    public void UpdateUsername()
+    {
+        if (App.UserDetails != null)
+            Username = App.UserDetails.Username;
+    }
 }
 

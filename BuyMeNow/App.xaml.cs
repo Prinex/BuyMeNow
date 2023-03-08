@@ -3,7 +3,7 @@
 public partial class App : Application
 {
 	// only one instance of the account
-	private static Account _userDetails;
+	private static Account _userDetails = new Account();
 	
 	public static Account UserDetails { get => _userDetails; set => _userDetails = value; } 
 

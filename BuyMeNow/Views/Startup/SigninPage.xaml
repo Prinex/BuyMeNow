@@ -27,18 +27,17 @@
                     <Frame HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                         <Image Source="user1.png" Margin="0"/>
                     </Frame>
-                    <Entry Text="{Binding UsernameL}" Placeholder="Username" TextColor="Black" VerticalOptions="Center" 
+                    <Entry Text="{Binding AccountDetails.Username}" Placeholder="Username" TextColor="Black" VerticalOptions="Center" 
                            HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                 </StackLayout>
             </Frame>
             <Frame BackgroundColor="Transparent" BorderColor="#00ace6" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                 <StackLayout Orientation="Horizontal" WidthRequest="350">
                     <Frame HeightRequest="40" WidthRequest="40" BorderColor="#00ace6" CornerRadius="30" Padding="0" Margin="5" HasShadow="True">
-                        <Image Source="lock.png" Margin="0"/>
+                        <ImageButton Source="{Binding Img}" Margin="0" Command="{Binding ShowPasswordCommand}"/>
                     </Frame>
-                    <Entry Text="{Binding PasswordL}" IsPassword="True" Placeholder="Password" TextColor="Black" 
+                    <Entry Text="{Binding AccountDetails.Password}" IsPassword="{Binding IsPass}" Placeholder="Password" TextColor="Black" 
                            VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-                    
                 </StackLayout>
             </Frame>
 

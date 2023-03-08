@@ -55,6 +55,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="app.db" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
@@ -70,9 +74,6 @@
 	<ItemGroup>
 	  <Compile Update="AboutPage.xaml.cs">
 	    <DependentUpon>AboutPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\Main\AddItemInteractionHistoryPage.xaml.cs">
-	    <DependentUpon>AddItemInteractionHistoryPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\Main\HomePage.xaml.cs">
 	    <DependentUpon>HomePage.xaml</DependentUpon>
@@ -122,13 +123,7 @@
 	  <MauiXaml Update="TermsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Main\AddItemInteractionHistoryPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Main\AddItemPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Main\AddUpdateShoppingListPage.xaml">
+	  <MauiXaml Update="Views\Main\EditAccountPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Main\HomePage.xaml">

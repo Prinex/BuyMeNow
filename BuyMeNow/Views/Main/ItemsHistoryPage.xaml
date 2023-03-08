@@ -1,12 +1,50 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:BuyMeNow.Models"
+             xmlns:viewmodel="clr-namespace:BuyMeNow.ViewModels.Main"
+             x:DataType="viewmodel:ItemsHistoryPageViewModel"
              x:Class="BuyMeNow.Views.Main.ItemsHistoryPage"
-             Title="ItemsHistoryPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Items History Page">
+    <Grid BackgroundColor="GhostWhite" RowDefinitions="120, *">
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="EndAndExpand" 
+               WidthRequest="250" HeightRequest="250" Padding="0" Margin="0, -1, -100, 0">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="150" HeightRequest="150" Padding="0" Margin="-50, -300, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="200" HeightRequest="200" Padding="0" Margin="-30, 900, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="100" HeightRequest="100" Padding="0" Margin="300, 450, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="150" HeightRequest="150" Padding="0" Margin="-20, 250, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="140" HeightRequest="140" Padding="0" Margin="300, 850, 0, -200">
+        </Frame>
+        <StackLayout Grid.Row="0" Padding="20">
+            <Label Text="Item Interaction History" FontSize="Title" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand"/>
+            <Button Text="Clear" Command="{Binding ClearHistoryCommand}" CornerRadius="30" HeightRequest="40" WidthRequest="80" 
+                    HorizontalOptions="EndAndExpand" Margin="0, -10"/>
+        </StackLayout>
+        
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:ItemInteractionHistory">
+                    <Frame HeightRequest="120" WidthRequest="350" Margin="10">
+                        <StackLayout  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="5">
+                            <Label Text="{Binding ItemTitle}" FontAttributes="Bold" TextDecorations="Underline"/>
+                            <Label Text="{Binding StoreName}"/>
+                            <Label Text="{Binding Rating, StringFormat='{0} stars'}" />
+                            <Label Text="{Binding Quantity, StringFormat='{0} item(s)'}"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+    
 </ContentPage>
