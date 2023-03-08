@@ -2,9 +2,9 @@
 
 public interface IItemService
 {
-    Task<List<Item>> GetItemList();
-    Task<bool> AddAccount(Item model);
-    Task<bool> UpdateAccount(Item model);
-    Task<bool> DeleteAccount(Item model);
+    Task<List<Item>> GetItemList(int id);
+    Task<bool> AddItem(Item model);
+    Task<bool> UpdateItem(Item model);
+    Task<bool> DeleteItem(Item model);
 }
 

@@ -27,7 +27,7 @@
                     <Frame HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                         <Image Source="user1.png" Margin="0"/>
                     </Frame>
-                    <Entry Text="{Binding AccountDetails.Username, Mode=TwoWay}" Placeholder="Username" TextColor="Black" VerticalOptions="Center" 
+                    <Entry Text="{Binding AccountDetails.Username}" Placeholder="Username" TextColor="Black" VerticalOptions="Center" 
                            HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                 </StackLayout>
             </Frame>
@@ -36,7 +36,7 @@
                     <Frame HeightRequest="40" WidthRequest="40" BorderColor="#00ace6" CornerRadius="30" Padding="0" Margin="5" HasShadow="True">
                         <ImageButton Source="{Binding Img}" Margin="0" Command="{Binding ShowPasswordCommand}"/>
                     </Frame>
-                    <Entry Text="{Binding AccountDetails.Password, Mode=TwoWay}" IsPassword="{Binding IsPass}" Placeholder="Password" TextColor="Black" 
+                    <Entry Text="{Binding AccountDetails.Password}" IsPassword="{Binding IsPass}" Placeholder="Password" TextColor="Black" 
                            VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                 </StackLayout>
             </Frame>

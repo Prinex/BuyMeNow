@@ -24,31 +24,30 @@ public class ItemService : IItemService
         }
     }
 
-    public async Task<List<Item>> GetItemList()
+    public async Task<List<Item>> GetItemList(int id)
     {
         await Init();
-        var itemList = await conn.Table<Item>().ToListAsync();
+        var itemList = await conn.Table<Item>().Where(i => i.ShoppingListID == id).ToListAsync();
         return itemList;
     }
-    public async Task<bool> AddAccount(Item model)
+    public async Task<bool> AddItem(Item model)
     {
         await Init();
         var query = await conn.InsertAsync(model);
         return query > 0;
     }
 
-    public async Task<bool> UpdateAccount(Item model)
+    public async Task<bool> UpdateItem(Item model)
     {
         await Init();
         var query = await conn.UpdateAsync(model);
         return query > 0;
     }
 
-    public async Task<bool> DeleteAccount(Item model)
+    public async Task<bool> DeleteItem(Item model)
     {
         await Init();
         var query = await conn.DeleteAsync(model);
         return query > 0;
     }
 }
-

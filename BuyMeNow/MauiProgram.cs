@@ -15,12 +15,18 @@ public static class MauiProgram
 				fonts.AddFont("Montserrat-Bold.ttf", "MontserratBold");
 			});
 
-		// Services 
-		builder.Services.AddSingleton<IAccountService, AccountService>();
+        // singleton/transient pattern for services, views, and viewmodels
+        // binding context for pages that do not have a view model?
+        // Services 
+        builder.Services.AddSingleton<IAccountService, AccountService>();
+        builder.Services.AddSingleton<IItemService, ItemService>();
+        builder.Services.AddSingleton<IItemInteractionHistoryService, ItemInteractionHistoryService>();
+        builder.Services.AddSingleton<IShoppingListService, ShoppingListService>();
+        builder.Services.AddSingleton<IStoreService, StoreService>();
 
-        // singleton/transient for services, views, and viewmodels
+        // views
         builder.Services.AddSingleton<SigninPage>();
-		builder.Services.AddTransient<SignupPage>();
+		builder.Services.AddSingleton<SignupPage>();
 		builder.Services.AddTransient<ResetPasswordPage>();
         builder.Services.AddTransient<LoadingPage>();
         builder.Services.AddSingleton<HomePage>();
@@ -29,15 +35,28 @@ public static class MauiProgram
         builder.Services.AddSingleton<AboutPage>();
 		builder.Services.AddSingleton<AccountPage>();
 		builder.Services.AddTransient<EditAccountPage>();
-		// viewmodels
+        builder.Services.AddTransient<ShoppingListsPage>();
+        builder.Services.AddTransient<AddUpdateShoppingListPage>();
+        builder.Services.AddTransient<ShoppingListPage>();
+        builder.Services.AddTransient<AddItemPage>();
+        builder.Services.AddTransient<AddItemInteractionHistoryPage>();
+        builder.Services.AddTransient<ItemsHistoryPage>();
+
+
+        // viewmodels
         builder.Services.AddSingleton<SigninPageViewModel>();
-		builder.Services.AddTransient<SignupPageViewModel>();
+		builder.Services.AddSingleton<SignupPageViewModel>();
 		builder.Services.AddTransient<ResetPasswordPageViewModel>();
         builder.Services.AddTransient<LoadingPageViewModel>();
         builder.Services.AddSingleton<HomePageViewModel>();
 		builder.Services.AddSingleton<AccountPageViewModel>();
         builder.Services.AddTransient<EditAccountPageViewModel>();
-		
+        builder.Services.AddTransient<ShoppingListsPageViewModel>();
+        builder.Services.AddTransient<AddUpdateShoppingListPageViewModel>();
+        builder.Services.AddTransient<ShoppingListPageViewModel>();
+        builder.Services.AddTransient<AddItemPageViewModel>();
+        builder.Services.AddTransient<AddItemInteractionHistoryPageViewModel>();
+        builder.Services.AddTransient<ItemsHistoryPageViewModel>();
 
         return builder.Build();
 	}

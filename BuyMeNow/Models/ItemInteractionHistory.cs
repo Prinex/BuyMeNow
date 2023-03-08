@@ -2,6 +2,10 @@
 
 public class ItemInteractionHistory
 {
+    private bool isExistent = true;
+
+    public bool IsExistent { get => isExistent; set => isExistent = value; }
+
     [Column("interactionID"), PrimaryKey, AutoIncrement, NotNull, Unique]
     public int InteractionID { get; set; }
 
@@ -12,7 +16,7 @@ public class ItemInteractionHistory
     public string StoreName { get; set; }
 
     [Column("itemTitle"), NotNull]
-    public string itemTitle { get; set; }
+    public string ItemTitle { get; set; }
 
     [Column("rating"), NotNull]
     public double Rating { get; set; }

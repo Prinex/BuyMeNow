@@ -1,6 +1,6 @@
 ﻿namespace BuyMeNow.Services;
 
-public class StoreSerivce : IStoreService
+public class StoreService : IStoreService
 {
     public SQLiteAsyncConnection conn;
 
@@ -22,7 +22,7 @@ public class StoreSerivce : IStoreService
     {
         await Init();
         var result = await conn.Table<Store>().Where(i => i.Name.ToLower() == name.ToLower()).FirstOrDefaultAsync();
-        return result;
+        return result ?? new Store() { IsExistent = false };
     }
 
     public async Task<List<Store>> GetStores()

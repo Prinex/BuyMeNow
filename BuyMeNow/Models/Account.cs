@@ -22,6 +22,6 @@ public class Account
     public List<ItemInteractionHistory> Interactions { get; set; }
     
     [OneToMany]
-    public List<ShoppingLists> ShoppingListsUser { get; set; }
+    public List<ShoppingList> ShoppingListsUser { get; set; }
 }
 

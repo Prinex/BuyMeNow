@@ -2,6 +2,10 @@
 
 public class Store
 {
+    private bool isExistent = true;
+
+    public bool IsExistent { get => isExistent; set => isExistent = value; }
+
     [Column("name"), PrimaryKey, NotNull, Unique]
     public string Name { get; set; }
 

@@ -18,17 +18,40 @@ public class ItemInteractionHistoryService : IItemInteractionHistoryService
         }
     }
 
-    public async Task<List<ItemInteractionHistory>> GetItemInteractionsList()
+    public async Task<List<ItemInteractionHistory>> GetItemInteractionsList(int id)
     {
         await Init();
-        var itemList = await conn.Table<ItemInteractionHistory>().ToListAsync();
+        var itemList = await conn.Table<ItemInteractionHistory>().Where(i => i.UserID == id).ToListAsync();
         return itemList;
+    }
+
+    public async Task<ItemInteractionHistory> GetItemInteraction(int userID, int itemInteractionID)
+    {
+        await Init();
+        var interactionHistory = await GetItemInteractionsList(userID);
+        ItemInteractionHistory item = new ItemInteractionHistory();
+
+        for (int i = 0; i < interactionHistory.Count; i++) 
+        {
+            if (interactionHistory[i].InteractionID == itemInteractionID)
+            {
+                item = interactionHistory[i];
+            }
+        }
+        return item ?? new ItemInteractionHistory() { IsExistent = false };
     }
 
     public async Task<bool> AddItemInteraction(ItemInteractionHistory model)
     {
         await Init();
         var query = await conn.InsertAsync(model);
+        return query > 0;
+    }
+
+    public async Task<bool> UpdateItemInteraction(ItemInteractionHistory model)
+    {
+        await Init();
+        var query = await conn.UpdateAsync(model);
         return query > 0;
     }
 

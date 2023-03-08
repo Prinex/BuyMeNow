@@ -1,6 +1,6 @@
 ﻿namespace BuyMeNow.Services;
 
-public class ShoppingService : IShoppingListService
+public class ShoppingListService : IShoppingListService
 {
     public SQLiteAsyncConnection conn;
 
@@ -18,10 +18,10 @@ public class ShoppingService : IShoppingListService
         }
     }
 
-    public async Task<List<ShoppingList>> GetShoppingLists()
+    public async Task<List<ShoppingList>> GetShoppingLists(int id)
     {
         await Init();
-        var shoppingLists = await conn.Table<ShoppingList>().ToListAsync();
+        var shoppingLists = await conn.Table<ShoppingList>().Where(i => i.UserID == id).ToListAsync();
         return shoppingLists;
     }
 
