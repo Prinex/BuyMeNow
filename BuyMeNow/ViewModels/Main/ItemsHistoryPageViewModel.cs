@@ -12,7 +12,7 @@ public partial class ItemsHistoryPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    public async void GetItemInteractionHistory()
+    public async Task GetItemInteractionHistory()
     {
         Items.Clear();
 
@@ -29,23 +29,28 @@ public partial class ItemsHistoryPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    public async void ClearHistory()
+    public async Task ClearHistory()
     {
         var confirmation = await Shell.Current.DisplayActionSheet("Are you sure you want to clear the history?", "No", null, "Yes");
         var itemsInteractionHistory = await _interactionHistoryService.GetItemInteractionsList(App.UserDetails.UserID);
-        
+
+        bool delResponse = false;
         if (confirmation == "Yes")
         {
             
             for (int i = 0; i < itemsInteractionHistory.Count; i++)
             {
-                bool delResponse = await _interactionHistoryService.DeleteItemInteraction(itemsInteractionHistory[i]);
+                delResponse = await _interactionHistoryService.DeleteItemInteraction(itemsInteractionHistory[i]);
                 if (delResponse == false)
                 {
                     await Shell.Current.DisplayAlert("Deletion error", "Something went wrong while trying to delete the item interaction history.", "OK");
                 }
             }
 
+        }
+        if (delResponse == true) 
+        {
+            await GetItemInteractionHistory();
         }
     }
 }

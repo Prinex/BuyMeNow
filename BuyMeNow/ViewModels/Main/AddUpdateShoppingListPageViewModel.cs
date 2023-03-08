@@ -14,7 +14,7 @@ public partial class AddUpdateShoppingListPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    public async void AddUpdateShoppingList()
+    public async Task AddUpdateShoppingList()
     {
         if (string.IsNullOrEmpty(ShoppingListDetail.ShoppingListName))
         {

@@ -16,7 +16,7 @@ public partial class ShoppingListsPageViewModel : BaseViewModel
         _itemListService = itemListService;
     }
 
-    public async void GetShoppingLists()
+    public async Task GetShoppingLists()
     {
         Lists.Clear();
 
@@ -35,13 +35,13 @@ public partial class ShoppingListsPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    public async void CreateShoppingList()
+    public async Task CreateShoppingList()
     {
         await Shell.Current.GoToAsync(nameof(AddUpdateShoppingListPage));
     }
 
     [RelayCommand]
-    public async void DecideAction(ShoppingList shoppingListModel)
+    public async Task DecideAction(ShoppingList shoppingListModel)
     {
         var response = await Shell.Current.DisplayActionSheet("Select option", "OK", null, "Add Item", "Edit", "Delete");
         if (response == "Add Item")
@@ -77,7 +77,7 @@ public partial class ShoppingListsPageViewModel : BaseViewModel
                 var delResponse = await _shoppingListService.DeleteShoppingList(shoppingListModel);
                 if (delResponse == true)
                 {
-                    GetShoppingLists();
+                    await GetShoppingLists();
                 }
             }
         }

@@ -23,7 +23,7 @@ public partial class EditAccountPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    public async void Update()
+    public async Task Update()
     {
         var currentUserDetails = new Account();
         bool response = false;

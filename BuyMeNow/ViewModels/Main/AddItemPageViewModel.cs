@@ -21,7 +21,7 @@ public partial class AddItemPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    public async void AddUpdateShoppingList()
+    public async Task AddUpdateShoppingList()
     {
         _storeService.AddStores();
 

@@ -31,13 +31,11 @@
         <CollectionView Grid.Row="1" ItemsSource="{Binding Items}" >
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Item">
-                    <Frame HeightRequest="80" WidthRequest="350" Margin="10">
-                        <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                            <HorizontalStackLayout Spacing="100">
-                                <Label Text="{Binding Title}" FontAttributes="Bold"/>
-                                <Label Text="{Binding StoreName}"/>
-                                <Label Text="{Binding Price, StringFormat='£{0}'}"/>
-                            </HorizontalStackLayout>
+                    <Frame HeightRequest="100" WidthRequest="350" Margin="10">
+                        <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="5">
+                            <Label Text="{Binding Title}" FontAttributes="Bold" TextDecorations="Underline"/>
+                            <Label Text="{Binding StoreName}" FontAutoScalingEnabled="True"/>
+                            <Label Text="{Binding Price, StringFormat='£{0}'}"/>
                         </VerticalStackLayout>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewmodel:ShoppingListPageViewModel}}, Path=DecideActionCommand}" 

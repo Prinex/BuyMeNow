@@ -28,17 +28,8 @@ public class ItemInteractionHistoryService : IItemInteractionHistoryService
     public async Task<ItemInteractionHistory> GetItemInteraction(int userID, int itemInteractionID)
     {
         await Init();
-        var interactionHistory = await GetItemInteractionsList(userID);
-        ItemInteractionHistory item = new ItemInteractionHistory();
-
-        for (int i = 0; i < interactionHistory.Count; i++) 
-        {
-            if (interactionHistory[i].InteractionID == itemInteractionID)
-            {
-                item = interactionHistory[i];
-            }
-        }
-        return item ?? new ItemInteractionHistory() { IsExistent = false };
+        var result = await conn.Table<ItemInteractionHistory>().Where(i => i.UserID == userID && i.InteractionID == itemInteractionID).FirstOrDefaultAsync();
+        return result ?? new ItemInteractionHistory() { IsExistent = false };
     }
 
     public async Task<bool> AddItemInteraction(ItemInteractionHistory model)

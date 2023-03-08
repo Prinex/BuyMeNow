@@ -35,12 +35,12 @@ public static class MauiProgram
         builder.Services.AddSingleton<AboutPage>();
 		builder.Services.AddSingleton<AccountPage>();
 		builder.Services.AddTransient<EditAccountPage>();
-        builder.Services.AddTransient<ShoppingListsPage>();
+        builder.Services.AddSingleton<ShoppingListsPage>();
         builder.Services.AddTransient<AddUpdateShoppingListPage>();
         builder.Services.AddTransient<ShoppingListPage>();
         builder.Services.AddTransient<AddItemPage>();
         builder.Services.AddTransient<AddItemInteractionHistoryPage>();
-        builder.Services.AddTransient<ItemsHistoryPage>();
+        builder.Services.AddSingleton<ItemsHistoryPage>();
 
 
         // viewmodels
@@ -51,12 +51,12 @@ public static class MauiProgram
         builder.Services.AddSingleton<HomePageViewModel>();
 		builder.Services.AddSingleton<AccountPageViewModel>();
         builder.Services.AddTransient<EditAccountPageViewModel>();
-        builder.Services.AddTransient<ShoppingListsPageViewModel>();
+        builder.Services.AddSingleton<ShoppingListsPageViewModel>();
         builder.Services.AddTransient<AddUpdateShoppingListPageViewModel>();
         builder.Services.AddTransient<ShoppingListPageViewModel>();
         builder.Services.AddTransient<AddItemPageViewModel>();
         builder.Services.AddTransient<AddItemInteractionHistoryPageViewModel>();
-        builder.Services.AddTransient<ItemsHistoryPageViewModel>();
+        builder.Services.AddSingleton<ItemsHistoryPageViewModel>();
 
         return builder.Build();
 	}

@@ -38,13 +38,13 @@ public partial class AccountPageViewModel : BaseViewModel
 
     // passing account model when navigating to EditAccountPage
     [RelayCommand]
-    public async void Edit(Account accountModel)
+    public async Task Edit(Account accountModel)
     { 
         await Shell.Current.GoToAsync(nameof(EditAccountPage));
     }
 
     [RelayCommand]
-    public async void Delete()
+    public async Task Delete()
     {
         var response = await AppShell.Current.DisplayActionSheet("Are you sure you want to delete your account?", "Cancel", null, "Delete");
 

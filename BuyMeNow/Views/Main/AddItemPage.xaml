@@ -36,9 +36,11 @@
                         <Label Text="Product Price" FontSize="Subtitle"/>
                         <Entry Text="{Binding ItemListDetail.Price}" Placeholder="Price" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
                         <Label Text="Product Rating" FontSize="Subtitle"/>
-                        <Entry Text="{Binding ItemListDetail.Rating}" Placeholder="Rating" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                        <Label Text="{Binding ItemListDetail.Rating}" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                        <BoxView WidthRequest="300" HeightRequest="0.8" Color="Gray" />
                         <Label Text="Quantity" FontSize="Subtitle"/>
-                        <Entry Text="{Binding ItemListDetail.Quantity}" Placeholder="Quantity" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                        <Label Text="{Binding ItemListDetail.Quantity}" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                        <BoxView WidthRequest="300" HeightRequest="0.8" Color="Gray" />
                     </StackLayout>
                 </ScrollView>
             </Frame>

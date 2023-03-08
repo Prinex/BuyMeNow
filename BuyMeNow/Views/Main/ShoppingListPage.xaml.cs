@@ -10,9 +10,9 @@ public partial class ShoppingListPage : ContentPage
 		this.BindingContext = viewModel; 
 	}
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
-        _viewModel.GetShoppingList();
+        await _viewModel.GetShoppingList();
     }
 }

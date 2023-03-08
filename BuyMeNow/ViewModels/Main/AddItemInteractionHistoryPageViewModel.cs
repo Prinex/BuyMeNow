@@ -21,8 +21,8 @@ public partial class AddItemInteractionHistoryPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    public async void AddInteractionHistory()
-    {
+    public async Task AddInteractionHistory()
+     {
         if (ItemListDetail.Rating == 0 && ItemListDetail.Quantity == 0)
         {
             await Shell.Current.DisplayAlert("Field error", "Cannot give 0 value for rating and quantity.", "OK");
@@ -44,33 +44,25 @@ public partial class AddItemInteractionHistoryPageViewModel : BaseViewModel
             bool responseItemListElement = false;
             bool responseInteractionItemHistory = false;
             var itemInteraction = await _historyService.GetItemInteraction(ShoppingListDetail.UserID, ItemListDetail.ItemID);
-            //if (itemInteraction.IsExistent == true)
-            //{
-            //    responseItemListElement = await _itemService.UpdateItem(ItemListDetail);
-            //    itemInteraction.Rating = ItemListDetail.Rating;
-            //    itemInteraction.Quantity = ItemListDetail.Quantity;
-            //    responseInteractionItemHistory = await _historyService.UpdateItemInteraction(itemInteraction);
-            //}
-            //else
-            //{
-            //    responseInteractionItemHistory = await _historyService.AddItemInteraction(new ItemInteractionHistory
-            //    {
-            //        UserID = ShoppingListDetail.UserID,
-            //        StoreName = ItemListDetail.StoreName,
-            //        ItemTitle = ItemListDetail.Title,
-            //        Rating = ItemListDetail.Rating,
-            //        Quantity = ItemListDetail.Quantity
-            //    });
-            //}
+            
             responseItemListElement = await _itemService.UpdateItem(ItemListDetail);
-            responseInteractionItemHistory = await _historyService.AddItemInteraction(new ItemInteractionHistory
+            if (itemInteraction.IsExistent == true)
             {
-                UserID = ShoppingListDetail.UserID,
-                StoreName = ItemListDetail.StoreName,
-                ItemTitle = ItemListDetail.Title,
-                Rating = ItemListDetail.Rating,
-                Quantity = ItemListDetail.Quantity
-            });
+                itemInteraction.Rating = ItemListDetail.Rating;
+                itemInteraction.Quantity = ItemListDetail.Quantity;
+                responseInteractionItemHistory = await _historyService.UpdateItemInteraction(itemInteraction);
+            }
+            else
+            {
+                responseInteractionItemHistory = await _historyService.AddItemInteraction(new ItemInteractionHistory
+                {
+                    UserID = ShoppingListDetail.UserID,
+                    StoreName = ItemListDetail.StoreName,
+                    ItemTitle = ItemListDetail.Title,
+                    Rating = ItemListDetail.Rating,
+                    Quantity = ItemListDetail.Quantity
+                });
+            }
             if (responseInteractionItemHistory == true)
                 await Shell.Current.DisplayAlert("Item reviewed", $"Your item review been saved in the history section.", "OK");
             else

@@ -10,9 +10,9 @@ public partial class ItemsHistoryPage : ContentPage
 		this.BindingContext = viewModel;
 	}
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
-		_viewModel.GetItemInteractionHistory();
+		await _viewModel.GetItemInteractionHistory();
     }
 }

@@ -8,11 +8,16 @@ public partial class ShoppingListsPage : ContentPage
 		InitializeComponent();
         _viewModel = viewModel;
         this.BindingContext = viewModel;
-	}
+    }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
-        _viewModel.GetShoppingLists();
+        await _viewModel.GetShoppingLists();
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
     }
 }   
