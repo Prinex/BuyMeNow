@@ -37,7 +37,7 @@ public partial class ShoppingListsPageViewModel : BaseViewModel
     [RelayCommand]
     public async Task CreateShoppingList()
     {
-        await Shell.Current.GoToAsync(nameof(AddUpdateShoppingListPage));
+        await Shell.Current.GoToAsync($"/{nameof(AddUpdateShoppingListPage)}");
     }
 
     [RelayCommand]
@@ -48,13 +48,13 @@ public partial class ShoppingListsPageViewModel : BaseViewModel
         {
             var navParam = new Dictionary<string, object>();
             navParam.Add("ShoppingListDetail", shoppingListModel);
-            await Shell.Current.GoToAsync(nameof(ShoppingListPage), navParam);
+            await Shell.Current.GoToAsync($"/{nameof(ShoppingListPage)}", navParam);
         }
         if (response == "Edit")
         {
             var navParam = new Dictionary<string, object>();
             navParam.Add("ShoppingListDetail", shoppingListModel);
-            await Shell.Current.GoToAsync(nameof(AddUpdateShoppingListPage), navParam);
+            await Shell.Current.GoToAsync($"/{nameof(AddUpdateShoppingListPage)}", navParam);
         }
         else if (response == "Delete")
         {

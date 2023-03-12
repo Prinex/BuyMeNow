@@ -1,0 +1,3 @@
+found negative values for quantity or correct -> drop them
+
+there are not enough interactions for each user

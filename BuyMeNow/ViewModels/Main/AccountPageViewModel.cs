@@ -46,6 +46,7 @@ public partial class AccountPageViewModel : BaseViewModel
     [RelayCommand]
     public async Task Delete()
     {
+        
         var response = await AppShell.Current.DisplayActionSheet("Are you sure you want to delete your account?", "Cancel", null, "Delete");
 
         if (response == "Delete") 
