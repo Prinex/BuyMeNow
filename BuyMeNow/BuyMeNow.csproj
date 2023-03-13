@@ -132,16 +132,4 @@
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
   </ItemGroup>
-  <ItemGroup Label="CollaborativeFilteringModel">
-    <None Include="CollaborativeFilteringModel.consumption.cs">
-      <DependentUpon>CollaborativeFilteringModel.mbconfig</DependentUpon>
-    </None>
-    <None Include="CollaborativeFilteringModel.training.cs">
-      <DependentUpon>CollaborativeFilteringModel.mbconfig</DependentUpon>
-    </None>
-    <None Include="CollaborativeFilteringModel.zip">
-      <DependentUpon>CollaborativeFilteringModel.mbconfig</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
 </Project>

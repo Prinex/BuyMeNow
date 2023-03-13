@@ -15,6 +15,8 @@ global using BuyMeNow.ViewModels.Main;
 global using BuyMeNow.Models;
 global using BuyMeNow.Services;
 global using BuyMeNow.Helpers;
+// recommendation system namespace
+global using ProductRecommender;
 
 global using Microsoft.Extensions.Logging;
 global using System.Collections.ObjectModel;
