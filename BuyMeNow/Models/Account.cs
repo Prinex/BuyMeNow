@@ -6,7 +6,7 @@ public class Account
 
     public bool IsExistent { get => isExistent; set => isExistent = value; }
 
-    [Column("userID"), PrimaryKey, AutoIncrement, NotNull, Unique]
+    [Column("userID"), PrimaryKey, NotNull, Unique]
     public int UserID { get; set; }
     
     [Column("username"), NotNull, Unique]

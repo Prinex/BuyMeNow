@@ -6,6 +6,7 @@ global using SQLiteNetExtensions.Attributes;
 global using Newtonsoft.Json;
 global using System.Text.Json.Nodes;
 global using BCrypt.Net;
+global using Geolocation;
 
 global using BuyMeNow.Views.Startup;
 global using BuyMeNow.Views.Main;
@@ -15,6 +16,8 @@ global using BuyMeNow.ViewModels.Main;
 global using BuyMeNow.Models;
 global using BuyMeNow.Services;
 global using BuyMeNow.Helpers;
+
+global using static MLModel;
 
 global using Microsoft.Extensions.Logging;
 global using System.Collections.ObjectModel;

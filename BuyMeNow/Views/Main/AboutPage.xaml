@@ -28,6 +28,8 @@
                    FontSize="Medium"/>
             <Label Text="The third feature allows you to see the recommendation that were made by the system according to your interactions/history." 
                    FontSize="Medium"/>
+		<Label Text="The fourth feature allows you to see the geolocation of where the store where you bought an item is." 
+                   FontSize="Medium"/>
         </StackLayout>
 
     </Grid>

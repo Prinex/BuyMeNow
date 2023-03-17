@@ -15,9 +15,4 @@ public partial class ShoppingListsPage : ContentPage
         base.OnAppearing();
         await _viewModel.GetShoppingLists();
     }
-
-    protected override void OnDisappearing()
-    {
-        base.OnDisappearing();
-    }
 }   

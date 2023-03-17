@@ -39,7 +39,7 @@ public partial class ShoppingListPageViewModel : BaseViewModel
     {
         var navParam = new Dictionary<string, object>();
         navParam.Add("ShoppingListDetail", ShoppingListDetail);
-        await Shell.Current.GoToAsync(nameof(AddItemPage), navParam); 
+        await Shell.Current.GoToAsync($"/{nameof(AddItemPage)}", navParam); 
     }
 
     [RelayCommand]
@@ -52,7 +52,7 @@ public partial class ShoppingListPageViewModel : BaseViewModel
             var navParam = new Dictionary<string, object>();
             navParam.Add("ShoppingListDetail", ShoppingListDetail);
             navParam.Add("ItemListDetail", itemListModel);
-            await Shell.Current.GoToAsync(nameof(AddItemPage), navParam);
+            await Shell.Current.GoToAsync($"/{nameof(AddItemPage)}", navParam);
         }
         else if (response == "Delete")
         {
@@ -72,7 +72,7 @@ public partial class ShoppingListPageViewModel : BaseViewModel
             var navParam = new Dictionary<string, object>();
             navParam.Add("ShoppingListDetail", ShoppingListDetail);
             navParam.Add("ItemListDetail", itemListModel);
-            await Shell.Current.GoToAsync(nameof(AddItemInteractionHistoryPage), navParam);
+            await Shell.Current.GoToAsync($"/{nameof(AddItemInteractionHistoryPage)}", navParam);
         }
     }
 }

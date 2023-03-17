@@ -29,6 +29,7 @@ public partial class SignupPageViewModel : BaseViewModel
                 // hash and salt the password (salting is done automatically by the HashPasword function
                 response = await _accountService.AddAccount(new Account
                 {
+                    UserID = 260,
                     Username = AccountDetails.Username,
                     Password = BCrypt.Net.BCrypt.HashPassword(AccountDetails.Password),
                     Postcode = AccountDetails.Postcode

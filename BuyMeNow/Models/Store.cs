@@ -12,10 +12,10 @@ public class Store
     [Column("storeID"), NotNull, Unique]
     public int StoreID { get; set; }
 
-    [Column("longitude"), NotNull, Unique]
-    public double Longitude { get; set; }
-
     [Column("latitude"), NotNull, Unique]
     public double Latitude { get; set; }
+
+    [Column("longitude"), NotNull, Unique]
+    public double Longitude { get; set; }
 }
 
