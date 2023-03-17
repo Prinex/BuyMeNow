@@ -8,7 +8,7 @@ using Microsoft.ML.Data;
 using Microsoft.ML.Trainers;
 using Microsoft.ML;
 
-namespace ProductRecommender
+namespace BuyMeNow
 {
     public partial class CollaborativeFilteringModel
     {
@@ -36,7 +36,7 @@ namespace ProductRecommender
             // Data process configuration with pipeline data transformations
             var pipeline = mlContext.Transforms.Conversion.MapValueToKey(outputColumnName:@"itemID",inputColumnName:@"itemID")      
                                     .Append(mlContext.Transforms.Conversion.MapValueToKey(outputColumnName:@"userID",inputColumnName:@"userID"))      
-                                    .Append(mlContext.Recommendation().Trainers.MatrixFactorization(new MatrixFactorizationTrainer.Options(){LabelColumnName=@"rating",MatrixColumnIndexColumnName=@"userID",MatrixRowIndexColumnName=@"itemID",ApproximationRank=961,LearningRate=0.018213286934372,NumberOfIterations=74,Quiet=true}));
+                                    .Append(mlContext.Recommendation().Trainers.MatrixFactorization(new MatrixFactorizationTrainer.Options(){LabelColumnName=@"rating",MatrixColumnIndexColumnName=@"userID",MatrixRowIndexColumnName=@"itemID",ApproximationRank=13,LearningRate=0.00567480803531044,NumberOfIterations=712,Quiet=true}));
 
             return pipeline;
         }

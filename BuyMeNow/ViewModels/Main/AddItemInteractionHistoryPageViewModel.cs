@@ -52,14 +52,16 @@ public partial class AddItemInteractionHistoryPageViewModel : BaseViewModel
                 responseInteractionItemHistory = await _historyService.AddItemInteraction(new ItemInteractionHistory
                 {
                     UserID = ShoppingListDetail.UserID,
+                    ItemID = ItemListDetail.ItemID,
                     StoreName = ItemListDetail.StoreName,
                     ItemTitle = ItemListDetail.Title,
+                    Price = ItemListDetail.Price,
                     Rating = ItemListDetail.Rating,
                     Quantity = ItemListDetail.Quantity
                 });
             }
             if (responseInteractionItemHistory == true)
-                await Shell.Current.DisplayAlert("Item reviewed", $"Your item review been saved in the history section.", "OK");
+                await Shell.Current.DisplayAlert("Item reviewed", $"Your item review has been saved in the history section.", "OK");
             else
                 await Shell.Current.DisplayAlert("Error", "Something went wrong while trying to save the item review in the shopping list.", "OK");
         }

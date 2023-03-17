@@ -23,6 +23,7 @@ public partial class AddItemPageViewModel : BaseViewModel
     [RelayCommand]
     public async Task AddUpdateShoppingList()
     {
+        // add stores here; only once will be added
         _storeService.AddStores();
 
         var getStore = await _storeService.GetStore(ItemListDetail.StoreName); 

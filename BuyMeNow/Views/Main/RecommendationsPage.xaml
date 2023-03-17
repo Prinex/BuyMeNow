@@ -1,12 +1,53 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:BuyMeNow.Models"
+             xmlns:viewmodel="clr-namespace:BuyMeNow.ViewModels.Main"
+             x:DataType="viewmodel:RecommendationsPageViewModel"
              x:Class="BuyMeNow.Views.Main.RecommendationsPage"
              Title="Recommendations Page">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid BackgroundColor="GhostWhite" RowDefinitions="200, *">
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="EndAndExpand" 
+               WidthRequest="250" HeightRequest="250" Padding="0" Margin="0, -1, -100, 0">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="150" HeightRequest="150" Padding="0" Margin="-50, -300, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="200" HeightRequest="200" Padding="0" Margin="-30, 900, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="100" HeightRequest="100" Padding="0" Margin="300, 450, 0, -200">
+        </Frame>
+        <Frame BackgroundColor="AliceBlue" CornerRadius="125" HorizontalOptions="StartAndExpand" 
+               WidthRequest="150" HeightRequest="150" Padding="0" Margin="-20, 250, 0, -200">
+        </Frame>
+        <StackLayout Grid.Row="0" Padding="20" HorizontalOptions="CenterAndExpand">
+            <Label Text="Recommendations for you" FontSize="Title"/>
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                <Button Text="Clear" Command="{Binding ClearRecommendationsCommand}" CornerRadius="30"
+                    Margin="0,20,0,0" WidthRequest="70" HorizontalOptions="StartAndExpand"/>
+                <Button Text="Get" Command="{Binding AddRecommendationsCommand}" CornerRadius="30"
+                    Margin="0,20,0,0" WidthRequest="70" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding ExistentItems}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:ExistentItem">
+                    <Frame HeightRequest="100" WidthRequest="350" Margin="10">
+                        <StackLayout Spacing="5">
+                            <Label Text="{Binding Title}" FontAttributes="Bold" TextDecorations="Underline" HorizontalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Price, StringFormat='£{0}'}" HorizontalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding StoreName}" HorizontalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewmodel:RecommendationsPageViewModel}}, Path=DecideActionCommand}" 
+                                                  CommandParameter="{Binding .}"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

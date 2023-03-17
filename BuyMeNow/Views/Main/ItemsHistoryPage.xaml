@@ -34,12 +34,13 @@
         <CollectionView Grid.Row="1" ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:ItemInteractionHistory">
-                    <Frame HeightRequest="120" WidthRequest="350" Margin="10">
-                        <StackLayout  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="5">
-                            <Label Text="{Binding ItemTitle}" FontAttributes="Bold" TextDecorations="Underline"/>
-                            <Label Text="{Binding StoreName}"/>
-                            <Label Text="{Binding Rating, StringFormat='{0} stars'}" />
-                            <Label Text="{Binding Quantity, StringFormat='{0} item(s)'}"/>
+                    <Frame HeightRequest="145" WidthRequest="350" Margin="10">
+                        <StackLayout Spacing="5">
+                            <Label Text="{Binding ItemTitle}" FontAttributes="Bold" TextDecorations="Underline" HorizontalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Price, StringFormat='£{0}'}" HorizontalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding StoreName}" HorizontalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Rating, StringFormat='{0} star(s)'}" HorizontalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Quantity, StringFormat='{0} item(s)'}" HorizontalOptions="CenterAndExpand"/>
                         </StackLayout>
                     </Frame>
                 </DataTemplate>

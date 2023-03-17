@@ -12,11 +12,17 @@ public class ItemInteractionHistory
     [Column("userID"), ForeignKey(typeof(Account)), NotNull]
     public int UserID { get; set; }
 
+    [Column("itemID"), NotNull]
+    public int ItemID { get; set; }
+
     [Column("storeName"), ForeignKey(typeof(Store)), NotNull]
     public string StoreName { get; set; }
 
     [Column("itemTitle"), NotNull]
     public string ItemTitle { get; set; }
+
+    [Column("price"), NotNull]
+    public double Price { get; set; }
 
     [Column("rating"), NotNull]
     public double Rating { get; set; }
