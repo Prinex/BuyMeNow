@@ -8,13 +8,17 @@ public static class MauiProgram
 	public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("Montserrat-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("Montserrat-Bold.ttf", "MontserratBold");
-			});
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("Montserrat-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("Montserrat-Bold.ttf", "MontserratBold");
+            })
+            .ConfigureEssentials(essentials =>
+            {
+                essentials.UseMapServiceToken("AlIJtQ8qFdmEJKOKUOINwh--7niJ9xKzj1gJIdQwLZxWFQ0Dhj0tBZQJnjhz4a3d");
+            });
 
         // singleton/transient pattern for services, views, and viewmodels
         // binding context for pages that do not have a view model?

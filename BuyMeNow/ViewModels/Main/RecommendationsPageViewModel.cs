@@ -1,6 +1,4 @@
-﻿using Geocoding;
-using Geocoding.Microsoft;
-using Microsoft.Maui.Devices.Sensors;
+﻿using Geolocation;
 
 namespace BuyMeNow.ViewModels.Main;
 
@@ -156,13 +154,13 @@ public partial class RecommendationsPageViewModel : BaseViewModel
         // based on this example of converting a postcode to longitude & latitude : https://github.com/chadly/Geocoding.net/blob/master/README.md -  
         // convert postcode of the user to latitude longitude and calculate the distance between the user and the store
         // this uses bing api maps
-        string bingKey = "AlIJtQ8qFdmEJKOKUOINwh--7niJ9xKzj1gJIdQwLZxWFQ0Dhj0tBZQJnjhz4a3d";
-        IGeocoder geocoder = new BingMapsGeocoder(bingKey);
 
-        IEnumerable<Address> address = geocoder.Geocode(App.UserDetails.Postcode);
 
-        double latitudeUser = address.First().Coordinates.Latitude;
-        double longitudeUser = address.First().Coordinates.Longitude;
+        IEnumerable<Location> getCoordinates = await Geocoding.GetLocationsAsync(App.UserDetails.Postcode);
+        var coordinates = getCoordinates?.FirstOrDefault();
+
+        double latitudeUser = coordinates.Latitude;
+        double longitudeUser = coordinates.Longitude;
 
         if (response == "Get Distance") 
         {

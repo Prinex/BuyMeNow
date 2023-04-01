@@ -46,17 +46,8 @@
     <None Remove="Resources\Raw\itemsDB.csv" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="{bee4bfec-6683-3e67-9167-3c0cbc68f40a}">
-      <WrapperTool>tlbimp</WrapperTool>
-      <VersionMinor>4</VersionMinor>
-      <VersionMajor>2</VersionMajor>
-      <Guid>bee4bfec-6683-3e67-9167-3c0cbc68f40a</Guid>
-    </COMReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
-    <PackageReference Include="Geocoding.net" Version="3.6.1" />
     <PackageReference Include="Geolocation" Version="1.2.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
     <PackageReference Include="Microsoft.ML" Version="1.7.1" />
