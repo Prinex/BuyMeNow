@@ -20,4 +20,5 @@ In general, the development of this app was done with the help of video tutorial
 * Tutorial on how to make a CRUD application : https://www.youtube.com/watch?v=JRNwjsywrWM&list=PLLUdsPqg1nsWGxfqqQkkQCB0oHZ00YaCI&index=8&t=550s
 * Knowledge based video on recommendation systems : https://www.youtube.com/watch?v=kZxgvtciJFk&list=PLLUdsPqg1nsWGxfqqQkkQCB0oHZ00YaCI&index=3&t=61s
 * Implementation of a recommendation system using ML.NET builder in Visual Studio tutorial : https://www.youtube.com/watch?v=f2KIjQCVN0A&list=PLLUdsPqg1nsWGxfqqQkkQCB0oHZ00YaCI&index=2
+* From the following website, there were taken icons used in this project (the icons are each small image that you can see attached to an option of the app's layout; For example Shopping List Section option has attached a small icon bag) - CHECK THE FOLLOWING LOCATION - ./BuyMeNow/Resources/Images - here are all the icons used for the app : https://icons8.com/icons
 
