@@ -6,8 +6,7 @@
 
 **Demo:** https://www.youtube.com/watch?v=2Z5kBhyxS3M
 
-**Sources used**
-Materials and sources used throughout the project development (note this is not referencing style, just providing resource/materials used throughout the project development):
+**Materials and sources used throughout the project development:**
 
 For building the recommendation system, [ML.NET](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet) model builder has been used to for the following steps: Load the datasets needed for training and testing, and evaluation stage of the model. Note that it was not used at all for preprocessing and deployment as shown and demonstrated in the CW writing (note that there is a proper citation and reference regarding the use of [ML.NET](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet) in the CW writing document).
 
