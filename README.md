@@ -9,7 +9,7 @@
 **Materials and sources used throughout the project development:**
 
 For building the recommendation system, [ML.NET](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet) model builder has been used to for the following steps: Load the datasets needed for training, testing, and evaluation stages of the model.
-In general, the development of this app was done with the help of video tutorials, by watching and then implementing the needs of this project. Certain aspects of some implementations have been followed as done in some videos according to this project's requirements, for example, on how to implement some methods used for database services, or on how to create different UI elements, such as buttons, entries, layout pages, etc. Other afferent implementations, or knowledge regarding technical aspects has been provided in the CW writing document.
+In general, the development of this app was done with the help of video tutorials, by watching and then implementing the needs of this project. Certain aspects of some implementations have been followed as done in some videos according to this project's requirements, e.g., on how to implement some methods used for database services, or on how to create different UI elements, such as buttons, entries, layout pages, etc.
 
 **The following are some of the tutorials were found to be helpful:**
 
